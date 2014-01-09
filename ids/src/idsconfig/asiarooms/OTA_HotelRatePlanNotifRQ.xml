@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OTA_HotelRatePlanNotifRQ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.opentravel.org/OTA/2003/05" PrimaryLangID="en-us" Version="2.1" TimeStamp="2006-12-05T16:17:03.25-06:00" EchoToken="066a1aed-5d19-49e4-8f4eda0ce8aabc3e ">
+	<POS>
+		<Source>
+			<RequestorID Type="18" ID="ProviderName" MessagePassword="MessagePassword"/>
+		</Source>
+	</POS>
+	<RatePlans HotelCode="OTA2">
+		<RatePlan RatePlanCode="RACK" RatePlanCodeType="RatePlanCode" RatePlanNotifType="New" RatePlanNotifScopeType="RatePlanOnly">
+			<BookingRules>
+				<BookingRule>
+					<CancelPenalties>
+						<CancelPenalty>
+							<Deadline OffsetTimeUnit="Day" AbsoluteDeadline="22:00:00" OffsetDropTime="BeforeArrival" OffsetUnitMultiplier="1"/>
+							<AmountPercent Percent="100" NmbrOfNights="1" BasisType="Nights"/>
+							<PenaltyDescription>
+								<Text>Cancellation description.</Text>
+							</PenaltyDescription>
+						</CancelPenalty>
+					</CancelPenalties>
+				</BookingRule>
+			</BookingRules>
+			<SellableProducts>
+				<SellableProduct InvCode="BB" InvType="BOARD" IsRoom="false">
+</SellableProduct>
+			</SellableProducts>
+			<Description>
+				<Text>Rack rate.</Text>
+			</Description>
+		</RatePlan>
+	</RatePlans>
+</OTA_HotelRatePlanNotifRQ>

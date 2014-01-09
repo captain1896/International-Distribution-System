@@ -1,0 +1,65 @@
+<reservations>
+  <reservation>
+    <commissionamount>437.08</commissionamount>
+    <currencycode>CNY</currencycode>
+    <customer>
+      <address>1535 Meyerside Dr. #20</address>
+      <cc_cvc>1094</cc_cvc>
+      <cc_expiration_date>07/2015</cc_expiration_date>
+      <cc_name>Som N Khanna</cc_name>
+      <cc_number>373321666112015</cc_number>
+      <cc_type>American Express</cc_type>
+      <city>Mississauga</city>
+      <company></company>
+      <countrycode>ca</countrycode>
+      <dc_issue_number></dc_issue_number>
+      <dc_start_date></dc_start_date>
+      <email>dkinternaitonal@bellnet.ca</email>
+      <first_name>Devaashish</first_name>
+      <last_name>Khanna</last_name>
+      <remarks></remarks>
+      <telephone>905-670-8811</telephone>
+      <zip>L5T 1M9</zip>
+    </customer>
+    <date>2012-02-14</date>
+    <hotel_id>67094</hotel_id>
+    <hotel_name>Jin Jiang Galaxy Hotel</hotel_name>
+    <id>149912542</id>
+    <room>
+      <arrival_date>2012-03-03</arrival_date>
+      <commissionamount>437.0784</commissionamount>
+      <currencycode>CNY</currencycode>
+      <departure_date>2012-03-11</departure_date>
+      <extra_info></extra_info>
+      <facilities>Tea/Coffee Maker, Minibar, Shower, Safety Deposit Box, TV, Telephone, Air Conditioning, Hairdryer, Wake Up Service/Alarm Clock, Bathrobe, Radio, Desk, Free toiletries, Toilet, Bathroom, Slippers, Satellite TV, Cable TV</facilities>
+      <guest_name>Som Khanna</guest_name>
+      <id>6709406</id>
+      <info> Meal Plan: Buffet breakfast  costs CNY 100 per person per night.  Children and Extra Bed Policy: All children are welcome. All children under 12 years stay free of charge when using existing beds. One older child or adult is charged CNY 260 per night and person in an extra bed. One child under 2 years stays free of charge in a baby cot. Maximum capacity of extra beds/babycots in a room is 1.  Deposit Policy: The total price of the reservation will be charged on the day of booking and is non-refundable.  Cancellation Policy: Please note, if cancelled, modified or in case of no-show, the total price of the reservation will be charged. </info>
+      <name>Superior Double Room - Non Refundable</name>
+      <numberofguests>1</numberofguests>
+      <price date="2012-03-03"
+             rate_id="880398">485.58</price>
+      <price date="2012-03-04"
+             rate_id="880398">485.58</price>
+      <price date="2012-03-05"
+             rate_id="880398">485.58</price>
+      <price date="2012-03-06"
+             rate_id="880398">485.58</price>
+      <price date="2012-03-07"
+             rate_id="946600">425</price>
+      <price date="2012-03-08"
+             rate_id="946600">425</price>
+      <price date="2012-03-09"
+             rate_id="946600">425</price>
+      <price date="2012-03-10"
+             rate_id="946600">425</price>
+      <remarks></remarks>
+      <roomreservation_id>170068369</roomreservation_id>
+      <smoking></smoking>
+      <totalprice>3642.32</totalprice>
+    </room>
+    <status>new</status>
+    <time>18:25:03</time>
+    <totalprice>3642.32</totalprice>
+  </reservation>
+</reservations>

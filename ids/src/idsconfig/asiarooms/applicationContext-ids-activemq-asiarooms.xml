@@ -1,0 +1,60 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  http://activemq.apache.org/schema/core classpath:schema/activemq-core-5.5.0.xsd"
+	default-autowire="byName">
+	<amq:connectionFactory id="jmsConnectionFactoryAsiarooms" brokerURL="${mq.receive.brokerURL}" />
+	<!--  ActiveMQ destinations  -->
+	<amq:queue name="Asiarooms_ReceiveDestination" physicalName="${asiarooms.mq.receive.queue.name}" />
+
+	<!--  Message Driven POJO (MDP) -->
+	<!-- consumer for queue -->
+	<bean id="Asiarooms_queueConsumer" class="com.thayer.idsservice.task.update.UpdateBaseTask">
+		<property name="updateService">
+			<ref bean="asiarooms_updateService" />
+		</property>
+		<property name="thirdIataCode">
+			<value>${asiarooms.iataCode}</value>
+		</property>
+		<property name="alertMailList">
+			<list>
+				<value>${asiarooms.update.add2}</value>
+				<value>${asiarooms.update.add3}</value>
+				<value>${asiarooms.update.add4}</value>
+			</list>
+		</property>
+		<property name="iata">
+			<value>${asiarooms.iata}</value>
+		</property>
+		<property name="iataName">
+			<value>${asiarooms.iataName}</value>
+		</property>
+		<property name="timeoutRecover4ThirdService">
+			<ref bean="asiarooms_timeoutRecover4ThirdService"/>
+		</property>
+	</bean>
+
+	<!-- Message Listener for  -->
+	<bean id="Asiarooms_queueListener"
+		class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+		<constructor-arg ref="Asiarooms_queueConsumer" />
+		<!--  may be other method -->
+		<property name="defaultListenerMethod" value="onMessage" />
+	</bean>
+
+	<!--  listener container，MDP无需实现接口 -->
+	<bean id="Asiarooms_queueListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<!-- 
+		<property name="concurrentConsumers">
+			<value>1</value>
+		</property>
+		-->
+		<property name="connectionFactory" ref="jmsConnectionFactoryAsiarooms" />
+		<property name="destination" ref="Asiarooms_ReceiveDestination" />
+		<property name="messageListener" ref="Asiarooms_queueListener" />
+	</bean>
+
+
+
+</beans>

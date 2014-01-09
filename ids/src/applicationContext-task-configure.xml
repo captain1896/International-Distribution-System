@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<import resource="idsconfig/applicationContext-ids-task.xml" />
+	<import resource="idsconfig/agoda/applicationContext-ids-task-agoda.xml" />
+	<import resource="idsconfig/expedia/applicationContext-ids-task-expedia.xml" />
+	<import resource="idsconfig/bookingcom/applicationContext-ids-task-bookingcom.xml" />
+	<import resource="idsconfig/genares/applicationContext-ids-task-genares.xml" />
+	<import resource="idsconfig/venere/applicationContext-ids-task-venere.xml" />
+	<import resource="idsconfig/asiarooms/applicationContext-ids-task-asiarooms.xml" />
+	
+	<bean id="schedulerFactoryBean"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="ids_recoverMailTrigger" /><!--
+				<ref bean="agodaDlResvTrigger" />
+				<ref bean="agodaRsCheckTrigger" />
+				<ref bean="expediaDlResvTrigger" />
+				<ref bean="bookingcomDlResvTrigger" />
+				<ref bean="genaresDlResvTrigger" />
+				<ref bean="venereDlResvTrigger" />-->
+				<ref bean="asiaroomsDlResvTrigger" />
+			</list>
+		</property>
+		<property name="waitForJobsToCompleteOnShutdown">
+			<value>true</value>
+		</property>
+		<property name="configLocation" value="classpath:quartz.properties"></property>
+		<!-- 
+		<property name="dataSource" ref="dateSource" />
+  		 -->
+	</bean>
+
+</beans>

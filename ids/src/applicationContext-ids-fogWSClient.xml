@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:simple="http://cxf.apache.org/simple"
+	xmlns:soap="http://cxf.apache.org/bindings/soap"
+	xmlns:cxf="http://cxf.apache.org/core"
+	xmlns:http="http://cxf.apache.org/transports/http/configuration"
+	xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
+	xsi:schemaLocation=" 
+          http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd 
+          http://www.springframework.org/schema/beans 
+		  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+		  http://cxf.apache.org/transports/http/configuration	  
+		  http://cxf.apache.org/schemas/configuration/http-conf.xsd 
+          http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd 
+          http://cxf.apache.org/simple http://cxf.apache.org/schemas/simple.xsd 
+          http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd" default-autowire="byName">
+
+	<!-- IDs query -->
+	<cxf:bus>
+        <cxf:features>
+            <cxf:logging/>
+        </cxf:features>
+        <cxf:properties>
+		   <entry key="set-jaxb-validation-event-handler" value="false"/>
+		</cxf:properties>
+    </cxf:bus>
+    
+    
+    <http:conduit name="*.http-conduit">
+		<http-conf:client ConnectionTimeout="60000"
+			ReceiveTimeout="1200000" />
+		<http-conf:tlsClientParameters
+			disableCNCheck="true" />
+	</http:conduit>
+    
+    <jaxws:client id="fogServicePropWSClient"
+		serviceClass="com.thayer.fogservice.webservice.crs.PropWebService"
+		address="${fogService.url}/FogService/service/WS/CRS/PropWebService" />
+    
+	<jaxws:client id="fogServiceWSClient"
+		serviceClass="com.thayer.fogservice.webservice.crs.AvailExchangeRateWebService"
+		address="${fogService.dg.url}/FogService/service/WS/CRS/AvailExchangeRateWebService" />
+		
+	<jaxws:client id="fogServiceAvailWSClient"
+		serviceClass="com.thayer.fogservice.webservice.crs.AvailWebService"
+		address="${fogService.dg.url}/FogService/service/WS/CRS/AvailWebService" />
+
+	<jaxws:client id="fogIDSServiceWSClient"
+		serviceClass="com.thayer.fogservice.webservice.ids.IDSWebService"
+		address="${fogService.url}/FogService/service/WS/IDS/IDSWebService" />
+	
+	<jaxws:client id="fogServiceRoomWSClient"
+		serviceClass="com.thayer.fogservice.webservice.crs.RoomWebService"
+		address="${fogService.dg.url}/FogService/service/WS/CRS/RoomWebService" />
+	
+	<jaxws:client id="fogServiceRateWSClient"
+		serviceClass="com.thayer.fogservice.webservice.crs.RateWebService"
+		address="${fogService.dg.url}/FogService/service/WS/CRS/RateWebService" />
+	
+</beans>

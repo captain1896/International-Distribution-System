@@ -1,0 +1,440 @@
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="90%"
+ bgcolor=white style='width:90.0%;background:white'>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580;font-weight:bold'>Booker details</span></font></b><font
+  size=3 color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'><o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Reservation number<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.reservation_number}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Booking date<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.booking_date} <o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Hotel number &amp; name<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.hotelnumber_name}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Booker name<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.booker_name} <o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>E-mail<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.e_mail}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Street<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.street}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>City<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><st1:City w:st="on"><st1:place
+   w:st="on"><font size=3 color="#003580" face=Arial><span lang=EN-US
+    style='font-size:12.0pt;font-family:Arial;color:#003580'>${ObjectTO.city}</span></font></st1:place></st1:City><font
+  size=3 color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'><o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Country<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><st1:country-region
+  w:st="on"><st1:place w:st="on"><font size=3 color="#003580" face=Arial><span
+    lang=EN-US style='font-size:12.0pt;font-family:Arial;color:#003580'>${ObjectTO.country}</span></font></st1:place></st1:country-region><font
+  size=3 color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'><o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Telephone<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.telephone}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Language<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.language}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Total number of rooms<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.total_number_of_rooms}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Total number of guests<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.total_number_of_guests}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Total costs all rooms<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.total_costs_all_rooms}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Total commission<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.total_commission}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Guest remarks<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.guest_remarks}<o:p>&nbsp;</o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580;font-weight:bold'>Payment Information</span></font></b><font
+  size=3 color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'><o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Credit card type<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.cc_type}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+  <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Credit card number<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.cc_number}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Credit card holder's name<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.cc_name}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Credit card CVC-code<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.cc_cvc}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Credit card expiration date<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.cc_expiration_date}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Issue number<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.dc_issue_number}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+  <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Start date<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${ObjectTO.dc_start_date}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580;font-weight:bold'><br>
+  Guest details</span></font></b><font size=3 color="#003580" face=Arial><span
+  lang=EN-US style='font-size:12.0pt;font-family:Arial;color:#003580'><o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ #foreach($BookingComRoom in ${ObjectTO.resvRooms})
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Room ${BookingComRoom.order}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Guest name<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${BookingComRoom.guest_name}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Room type<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${BookingComRoom.room_type}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Number of persons<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${BookingComRoom.number_of_persons}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Arrival<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${BookingComRoom.arrival}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Departure<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${BookingComRoom.departure}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Number of nights<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${BookingComRoom.number_of_nights}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Total costs <o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${BookingComRoom.total_costs}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Costs per night<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${BookingComRoom.costs_per_night}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Status<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${BookingComRoom.status} <o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Smoking preference<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${BookingComRoom.smoking_preference}<o:p></o:p></span></font></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>Guest remarks<o:p></o:p></span></font></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=left style='text-align:left'><font size=3
+  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+  font-family:Arial;color:#003580'>${BookingComRoom.guest_remarks}<o:p>&nbsp;</o:p></span></font></p>
+  </td>
+ </tr>
+ #end
+</table>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OTA_HotelDescriptiveContentNotifRQ EchoToken="e4c62bec-3123-4625-a391-ca5c672d8ceb" TimeStamp="2011-03-24T15:30:34.063" xmlns="http://www.opentravel.org/OTA/2003/05">
+	<POS>
+		<Source>
+			<RequestorID MessagePassword="8Abrejar9vad" Type="1" ID="Hubs1">
+				<CompanyName>Hubs1</CompanyName>
+			</RequestorID>
+			<BookingChannel Type="7"/>
+		</Source>
+	</POS>
+	<HotelDescriptiveContents>
+		<HotelDescriptiveContent HotelCodeContext="Hubs1" ChainCode="Hubs1" HotelCode="1049" HotelName="Hubs1 Test Hotel" ChainName="Hubs1" CurrencyCode="CNY" TimeZone="8" LanguageCode="EN">
+			<HotelInfo>
+				<RelativePositions>
+					<RelativePosition>
+						<Transportations>
+							<Transportation>
+								<Descriptions>
+									<Description Language="EN">
+										<Text>HUBS1 Demo Hotel is located in the city center. </Text>
+									</Description>
+								</Descriptions>
+							</Transportation>
+						</Transportations>
+					</RelativePosition>
+				</RelativePositions>
+				<CategoryCodes>
+					<LocationCategory Removal="false" Code="1" CodeDetail="String"/>
+					<SegmentCategory Removal="false" Code="1" CodeDetail="String"/>
+					<HotelCategory Removal="false" Code="1" CodeDetail="String"/>
+					<ArchitecturalStyle Removal="false" Code="1" CodeDetail="String"/>
+					<GuestRoomInfo Removal="false" Code="1" Quantity="1" CodeDetail="String">
+						<RateRanges>
+							<RateRange MinRate="3.141" End="2012-12-31" DecimalPlaces="1" RateTimeUnit="Year" Duration="Text" MaxRate="3.141" Start="2011-01-01" FixedRate="3.141" CurrencyCode="CNY"/>
+						</RateRanges>
+						<Description ParagraphNumber="1" LastModifierID="String" Name="String" LastModifyDateTime="2001-12-17T09:30:47.0Z" CreateDateTime="2001-12-17T09:30:47.0Z" Language="en-us" CreatorID="String">
+							<Text Formatted="true" Language="en-us">String</Text>
+						</Description>
+					</GuestRoomInfo>
+				</CategoryCodes>
+				<Descriptions>
+					<Description Language="EN">
+						<Text>Hubs1 Demo Hotel is a 5 star hotel, located in the downtown city.</Text>
+						<URL>http://www.testhotel.com/description</URL>
+					</Description>
+				</Descriptions>
+				<Position Latitude="31.218086583475127" Longitude="121.44304275512695"/>
+				<Services>
+					<Service Code="148">
+						<OperationSchedules>
+							<OperationSchedule>
+								<OperationTimes>
+									<OperationTime Mon="true" Start="00:00:00" End="23:59:59"/>
+									<OperationTime Tue="true" Start="00:00:00" End="23:59:59"/>
+									<OperationTime Wed="true" Start="00:00:00" End="23:59:59"/>
+									<OperationTime Thur="true" Start="00:00:00" End="23:59:59"/>
+									<OperationTime Fri="true" Start="00:00:00" End="23:59:59"/>
+									<OperationTime Sat="true" Start="00:00:00" End="23:59:59"/>
+									<OperationTime Sun="true" Start="00:00:00" End="23:59:59"/>
+								</OperationTimes>
+							</OperationSchedule>
+						</OperationSchedules>
+						<Description>
+							<Text>ReservationDesk</Text>
+						</Description>
+					</Service>
+				</Services>
+			</HotelInfo>
+			<FacilityInfo>
+				<GuestRooms>
+					<!--
+					<GuestRoom ID="ST" Code="1" Quantity="50" MaxOccupancy="2">
+						<TypeRoom StandardNumBeds="2" StandardOccupancy="2" MaxRollaways="0" Configuration="double"/>
+						<Amenities>
+							<Amenity RoomAmenityCode="148" CodeDetail="Direct Dial Telephone"/>
+						</Amenities>
+						<Description>
+							<Text>Stantard room with twin beds.</Text>
+						</Description>
+					</GuestRoom>
+					-->
+				</GuestRooms>
+			</FacilityInfo>
+			<Policies>
+				<Policy>
+					<PolicyInfo CheckInTime="14:00:00" CheckOutTime="12:00:00"/>
+				</Policy>
+			</Policies>
+			<AreaInfo>
+				<Recreations>
+					<Recreation Code="7"/>
+				</Recreations>
+			</AreaInfo>
+			<AffiliationInfo>
+				<Awards>
+					<Award Provider="AA" Rating="5"/>
+				</Awards>
+			</AffiliationInfo>
+			<ContactInfos>
+				<ContactInfo>
+					<Names>
+						<Name CodeDetail="1">
+							<GivenName>Christal</GivenName>
+							<Surname>Ye</Surname>
+							<JobTitle>Reservations manager</JobTitle>
+						</Name>
+						<Name CodeDetail="2">
+							<GivenName>Erin</GivenName>
+							<Surname>Qian</Surname>
+							<JobTitle>Account Supervisor</JobTitle>
+						</Name>
+						<Name CodeDetail="3">
+							<GivenName>Erin</GivenName>
+							<Surname>Qian</Surname>
+							<JobTitle>Account Supervisor</JobTitle>
+						</Name>
+					</Names>
+					<Addresses>
+						<!--
+						<Address UseType="7">
+							<AddressLine>No 123 Nanjing Road</AddressLine>
+							<AddressLine> </AddressLine>
+							<CityName>Shanghai</CityName>
+							<PostalCode>111111</PostalCode>
+							<StateProv>NA</StateProv>
+							<CountryName>CN</CountryName>
+						</Address>
+						-->
+						<Address UseType="3">
+							<AddressLine>2nd Floor, CITS Shanghai Building</AddressLine>
+							<AddressLine>1277 Beijing West Road</AddressLine>
+							<CityName>Shanghai</CityName>
+							<PostalCode>200040</PostalCode>
+							<StateProv>NA</StateProv>
+							<CountryName Code="CN">CN</CountryName>
+						</Address>
+					</Addresses>
+					<Phones>
+						<Phone CountryAccessCode="+86" PhoneNumber="2153559609" PhoneTechType="1" PhoneLocationType="3"/>
+						<Phone CountryAccessCode="+86" PhoneNumber="2161226683" PhoneTechType="3" PhoneLocationType="3"/>
+						<Phone CountryAccessCode="+86" PhoneNumber="2153559609" PhoneTechType="5" PhoneLocationType="3"/>
+						<Phone CountryAccessCode="+86" PhoneNumber="2161226688" PhoneTechType="3" PhoneLocationType="8"/>
+					</Phones>
+					<Emails>
+						<!-- EmailType 6 for Billing, 7 for reservations 
+						<Email EmailType="6">account@hubs1.net</Email>
+						<Email EmailType="7">tprsvns@hubs1.net</Email>-->
+						
+					</Emails>
+				</ContactInfo>
+			</ContactInfos>
+			<TPA_Extensions>
+				<MaxChildAge Value="12"/>
+			</TPA_Extensions>
+		</HotelDescriptiveContent>
+	</HotelDescriptiveContents>
+</OTA_HotelDescriptiveContentNotifRQ>

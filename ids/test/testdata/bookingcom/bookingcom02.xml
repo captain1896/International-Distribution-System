@@ -1,0 +1,228 @@
+<reservations>
+  <reservation>
+    <commissionamount>1131</commissionamount>
+    <currencycode>CNY</currencycode>
+    <customer>
+      <address>kievyana 5/14</address>
+      <cc_cvc>558</cc_cvc>
+      <cc_expiration_date>07/2013</cc_expiration_date>
+      <cc_name>Aleksan Zakaryan</cc_name>
+      <cc_number>5263920000001768</cc_number>
+      <cc_type>MasterCard</cc_type>
+      <city>Yerevan</city>
+      <company></company>
+      <countrycode>am</countrycode>
+      <dc_issue_number></dc_issue_number>
+      <dc_start_date></dc_start_date>
+      <email>alik@sec.am</email>
+      <first_name>Aleksan</first_name>
+      <last_name>Zakaryan</last_name>
+      <remarks></remarks>
+      <telephone>+37491-40-66-30</telephone>
+      <zip>0028</zip>
+    </customer>
+    <date>2011-10-16</date>
+    <hotel_id>294419</hotel_id>
+    <hotel_name>Chang An Grand Hotel</hotel_name>
+    <id>793266884</id>
+    <room>
+      <arrival_date>2011-12-29</arrival_date>
+      <commissionamount>565.5</commissionamount>
+      <currencycode>CNY</currencycode>
+      <departure_date>2012-01-08</departure_date>
+      <extra_info></extra_info>
+      <facilities>Tea/Coffee Maker, Minibar, Shower, Bath, Safety Deposit Box, Telephone, Air Conditioning, Hairdryer, Wake Up Service/Alarm Clock, Bathrobe, Radio, Work Desk, Bathroom Amenities, Toilet, Bathroom, Slippers, Satellite TV, Cable TV, Carpeted Floor, LCD /Plasma /Flat-screen TV, Sofa, Tiled / Marble floor, Electric Kettle</facilities>
+      <guest_name>Aleksan Zakaryan</guest_name>
+      <id>29441901</id>
+      <info> Meal Plan: Breakfast  costs CNY 79 per person per night.  Children and Extra Bed Policy: All children are welcome. All children under 6 years stay free of charge when using existing beds. One child under 2 years stays free of charge in a baby cot. One older child or adult is charged CNY 249 per night and person in an extra bed. Maximum capacity of extra beds/babycots in a room is 1.  Deposit Policy: No deposit will be charged.  Cancellation Policy: If cancelled  up to 1 day before the date of arrival,  no fee will be charged. If cancelled  later or in case of no-show, the first night will be charged. </info>
+      <name>Superior Double or Twin Room</name>
+      <numberofguests>2</numberofguests>
+      <price date="2011-12-29"
+             rate_id="1052194">377</price>
+      <price date="2011-12-30"
+             rate_id="1052194">377</price>
+      <price date="2011-12-31"
+             rate_id="1052194">377</price>
+      <price date="2012-01-01"
+             rate_id="1052194">377</price>
+      <price date="2012-01-02"
+             rate_id="1052194">377</price>
+      <price date="2012-01-03"
+             rate_id="1052194">377</price>
+      <price date="2012-01-04"
+             rate_id="1052194">377</price>
+      <price date="2012-01-05"
+             rate_id="1052194">377</price>
+      <price date="2012-01-06"
+             rate_id="1052194">377</price>
+      <price date="2012-01-07"
+             rate_id="1052194">377</price>
+      <remarks></remarks>
+      <roomreservation_id>148269599</roomreservation_id>
+      <smoking></smoking>
+      <totalprice>3770</totalprice>
+    </room>
+    <room>
+      <arrival_date>2011-12-29</arrival_date>
+      <commissionamount>565.5</commissionamount>
+      <currencycode>CNY</currencycode>
+      <departure_date>2012-01-08</departure_date>
+      <extra_info></extra_info>
+      <facilities>Tea/Coffee Maker, Minibar, Shower, Bath, Safety Deposit Box, Telephone, Air Conditioning, Hairdryer, Wake Up Service/Alarm Clock, Bathrobe, Radio, Work Desk, Bathroom Amenities, Toilet, Bathroom, Slippers, Satellite TV, Cable TV, Carpeted Floor, LCD /Plasma /Flat-screen TV, Sofa, Tiled / Marble floor, Electric Kettle</facilities>
+      <guest_name>Tatevik Zakaryan</guest_name>
+      <id>29441901</id>
+      <info> Meal Plan: Breakfast  costs CNY 79 per person per night.  Children and Extra Bed Policy: All children are welcome. All children under 6 years stay free of charge when using existing beds. One child under 2 years stays free of charge in a baby cot. One older child or adult is charged CNY 249 per night and person in an extra bed. Maximum capacity of extra beds/babycots in a room is 1.  Deposit Policy: No deposit will be charged.  Cancellation Policy: If cancelled  up to 1 day before the date of arrival,  no fee will be charged. If cancelled  later or in case of no-show, the first night will be charged. </info>
+      <name>Superior Double or Twin Room</name>
+      <numberofguests>2</numberofguests>
+      <price date="2011-12-29"
+             rate_id="1052194">377</price>
+      <price date="2011-12-30"
+             rate_id="1052194">377</price>
+      <price date="2011-12-31"
+             rate_id="1052194">377</price>
+      <price date="2012-01-01"
+             rate_id="1052194">377</price>
+      <price date="2012-01-02"
+             rate_id="1052194">377</price>
+      <price date="2012-01-03"
+             rate_id="1052194">377</price>
+      <price date="2012-01-04"
+             rate_id="1052194">377</price>
+      <price date="2012-01-05"
+             rate_id="1052194">377</price>
+      <price date="2012-01-06"
+             rate_id="1052194">377</price>
+      <price date="2012-01-07"
+             rate_id="1052194">377</price>
+      <remarks></remarks>
+      <roomreservation_id>148269600</roomreservation_id>
+      <smoking></smoking>
+      <totalprice>3770</totalprice>
+    </room>
+    <status>new</status>
+    <time>20:23:26</time>
+    <totalprice>7540</totalprice>
+  </reservation>
+  <reservation>
+    <commissionamount>35.76</commissionamount>
+    <currencycode>CNY</currencycode>
+    <customer>
+      <address>Severnyi Proiezd, 7-130</address>
+      <cc_cvc>029</cc_cvc>
+      <cc_expiration_date>01/2012</cc_expiration_date>
+      <cc_name>ANNA EFIMOVA</cc_name>
+      <cc_number>5101266963129766</cc_number>
+      <cc_type>MasterCard</cc_type>
+      <city>Murmansk</city>
+      <company></company>
+      <countrycode>ru</countrycode>
+      <dc_issue_number></dc_issue_number>
+      <dc_start_date></dc_start_date>
+      <email>anna.efimova@gmail.com</email>
+      <first_name>ANNA</first_name>
+      <last_name>EFIMOVA</last_name>
+      <remarks></remarks>
+      <telephone>+79217246092</telephone>
+      <zip>183038</zip>
+    </customer>
+    <date>2011-10-16</date>
+    <hotel_id>67103</hotel_id>
+    <hotel_name>New Asia Hotel</hotel_name>
+    <id>828268710</id>
+    <room>
+      <arrival_date>2011-10-23</arrival_date>
+      <commissionamount>35.76</commissionamount>
+      <currencycode>CNY</currencycode>
+      <departure_date>2011-10-24</departure_date>
+      <extra_info>Features a minibar, tea/coffee making amenities and ironing facilities.</extra_info>
+      <facilities>Tea/Coffee Maker, Minibar, Shower, Bath, Pay TV, TV, Telephone, Air Conditioning, Wake Up Service/Alarm Clock, Work Desk, Ironing Facilities, Seating Area, Bathroom Amenities, Toilet, Bathroom, Satellite TV, Cable TV, Carpeted Floor</facilities>
+      <guest_name>ANNA EFIMOVA</guest_name>
+      <id>6710308</id>
+      <info> Meal Plan: Breakfast  costs CNY 28 per person per night.  Children and Extra Bed Policy: All children are welcome. All children under 12 years stay free of charge when using existing beds. There is no capacity for extra beds in the room. There is no capacity for cots in the room.  Deposit Policy: No deposit will be charged.  Cancellation Policy: If cancelled  up to 1 day before the date of arrival,  no fee will be charged. If cancelled  later or in case of no-show, the first night will be charged. </info>
+      <name>Superior Twin Room</name>
+      <numberofguests>2</numberofguests>
+      <price date="2011-10-23"
+             rate_id="89222">298</price>
+      <remarks></remarks>
+      <roomreservation_id>148268073</roomreservation_id>
+      <smoking>0</smoking>
+      <totalprice>298</totalprice>
+    </room>
+    <status>new</status>
+    <time>20:16:04</time>
+    <totalprice>298</totalprice>
+  </reservation>
+  <reservation>
+    <commissionamount>1084.20</commissionamount>
+    <currencycode>CNY</currencycode>
+    <customer>
+      <address>Avda. Vía láctea 1</address>
+      <cc_cvc>108</cc_cvc>
+      <cc_expiration_date>07/2014</cc_expiration_date>
+      <cc_name>Fernando Sanchez doncel</cc_name>
+      <cc_number>4086680962793194</cc_number>
+      <cc_type>Visa</cc_type>
+      <city>San Fernando de henares</city>
+      <company></company>
+      <countrycode>es</countrycode>
+      <dc_issue_number></dc_issue_number>
+      <dc_start_date></dc_start_date>
+      <email>fsanchezdoncel@pysec.com</email>
+      <first_name>Fernando</first_name>
+      <last_name>Sanchez doncel</last_name>
+      <remarks></remarks>
+      <telephone>+34686526647</telephone>
+      <zip>28830</zip>
+    </customer>
+    <date>2011-10-16</date>
+    <hotel_id>69255</hotel_id>
+    <hotel_name>New Harbour Service Apartments</hotel_name>
+    <id>936276426</id>
+    <room>
+      <arrival_date>2011-10-29</arrival_date>
+      <commissionamount>1084.2</commissionamount>
+      <currencycode>CNY</currencycode>
+      <departure_date>2011-11-11</departure_date>
+      <extra_info></extra_info>
+      <facilities>Minibar, Safety Deposit Box, TV, Telephone, Air Conditioning, Hairdryer, Wake Up Service/Alarm Clock, Bathrobe, Refrigerator, Work Desk, Seating Area, Toilet, Microwave, Bathroom, Slippers, Satellite TV, Kitchen, Cable TV</facilities>
+      <guest_name>Fernando Sanchez doncel</guest_name>
+      <id>6925511</id>
+      <info> Meal Plan: Breakfast  costs CNY 68 per person per night.  Children and Extra Bed Policy: All children are welcome. All children under 4 years stay free of charge when using existing beds. One child under 2 years stays free of charge in a baby cot. One older child or adult is charged CNY 120 per night and person in an extra bed. Maximum capacity of extra beds/babycots in a room is 1.  Deposit Policy: No deposit will be charged.  Cancellation Policy: If cancelled  up to 1 day before the date of arrival,  no fee will be charged. If cancelled  later or in case of no-show, the first night will be charged. </info>
+      <name>One-Bedroom Suite</name>
+      <numberofguests>2</numberofguests>
+      <price date="2011-10-29"
+             rate_id="161844">556</price>
+      <price date="2011-10-30"
+             rate_id="161844">556</price>
+      <price date="2011-10-31"
+             rate_id="161844">556</price>
+      <price date="2011-11-01"
+             rate_id="161844">556</price>
+      <price date="2011-11-02"
+             rate_id="161844">556</price>
+      <price date="2011-11-03"
+             rate_id="161844">556</price>
+      <price date="2011-11-04"
+             rate_id="161844">556</price>
+      <price date="2011-11-05"
+             rate_id="161844">556</price>
+      <price date="2011-11-06"
+             rate_id="161844">556</price>
+      <price date="2011-11-07"
+             rate_id="161844">556</price>
+      <price date="2011-11-08"
+             rate_id="161844">556</price>
+      <price date="2011-11-09"
+             rate_id="161844">556</price>
+      <price date="2011-11-10"
+             rate_id="161844">556</price>
+      <remarks></remarks>
+      <roomreservation_id>148269787</roomreservation_id>
+      <smoking>0</smoking>
+      <totalprice>7228</totalprice>
+    </room>
+    <status>new</status>
+    <time>20:24:15</time>
+    <totalprice>7228</totalprice>
+  </reservation>
+</reservations>

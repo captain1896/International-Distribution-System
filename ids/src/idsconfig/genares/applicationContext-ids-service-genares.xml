@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="false" default-autowire="byName">
+
+	<bean id="genares_downLoadService"
+		class="com.thayer.idsservice.ids.genares.download.service.GenaresDownloadService">
+		<property name="bookingListUrl">
+			<value>${genares.url}</value>
+		</property>
+		<property name="validateResvRate">
+			<value>true</value>
+		</property>
+		<property name="callFogService">
+			<ref bean="genares_callFogService"/>
+		</property>
+	</bean>
+	<bean id="genares_updateService"
+		class="com.thayer.idsservice.ids.genares.update.service.GenaresUpdateService">
+		<property name="thirdRequestXmlURL">
+			<value>${genares.url}</value>
+		</property>
+		<property name="maxAllotment">
+			<value>${genares.maxAllotment}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="update3LevelAvail">
+			<value>true</value>
+		</property>
+		<property name="callFogService">
+			<ref bean="genares_callFogService"/>
+		</property>
+		<property name="cacheFilterService">
+			<ref bean="genares_cacheFilterService"></ref>
+		</property>
+		<property name="eratemapDAO">
+			<ref bean="eratemapDAO"/>
+		</property>
+	</bean>
+
+	<bean id="genares_cacheFilterService"
+		class="com.thayer.idsservice.ids.genares.update.service.GenaresCacheFilterService"/>
+	
+	<bean id="genares_timeoutRecover4ThirdService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${genares.url}</value>
+		</property>
+	</bean>
+
+	<bean id="genares_timeoutRecover4FogService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${fogEx.url}</value>
+		</property>
+	</bean>
+	
+	<bean id="genares_callFogService" class="com.thayer.idsservice.service.SimpleCallFogService">
+		<property name="fogUser">
+			<value>${genares.fog.UserID}</value>
+		</property>
+		<property name="fogPassword">
+			<value>${genares.fog.UserPSW}</value>
+		</property>
+		<property name="fogExUrl">
+			<value>${fogEx.url}</value>
+		</property>
+		<property name="channelCode">
+			<value>${genares.channelCode}</value>
+		</property>
+		<property name="needTrySpecResv">
+			<value>true</value>
+		</property>
+		<property name="newResvMsgtype">
+			<value>newspecresv</value>
+		</property>
+		<property name="modResvMsgtype">
+			<value>modspecresv</value>
+		</property>
+		<property name="cancelResvMsgtype">
+			<value>cxlspecresv</value>
+		</property>
+	</bean>
+</beans>

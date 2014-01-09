@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="false">
+	
+	<bean id="expediaDlResvTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="expediaDljobDetail" />
+
+		<!-- 180 seconds -->
+		<property name="startDelay" value="180000" />
+		<!-- repeat every 420 seconds -->
+		<property name="repeatInterval" value="600000" />
+	</bean>
+
+	<bean id="expediaDljobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.thayer.idsservice.task.download.ResvDownloadBaseTask</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="downLoadService">
+					<ref bean="expedia_downLoadService"/>
+				</entry>
+				<entry key="mailService">
+					<ref bean="mailService"/>
+				</entry>
+				<entry key="mapService">
+					<ref bean="mapService"/>
+				</entry>
+				<entry key="eordermailInfoService">
+					<ref bean="eordermailInfoService"/>
+				</entry>
+				<entry key="thirdIataCode">
+					<value>${expedia.iataCode}</value>
+				</entry>
+				<entry key="iata">
+					<value>${expedia.iata}</value>
+				</entry>
+				<entry key="iataName">
+					<value>${expedia.iataName}</value>
+				</entry>
+				<entry key="timeoutRecover4ThirdService">
+					<ref bean="expedia_timeoutRecover4ThirdServiceBR"/>
+				</entry>
+				<entry key="timeoutRecover4FogService">
+					<ref bean="expedia_timeoutRecover4FogService"/>
+				</entry>
+				<entry key="resvCallbackService">
+					<ref bean="expedia_resvCallbackService"/>
+				</entry>
+				<entry key="alertMailList">
+					<list>
+						<value>${expedia.resvMail.add1}</value>
+						<value>${expedia.resvMail.add2}</value>
+					</list>
+				</entry>			
+			</map>
+		</property>
+	</bean>
+	
+	<!-- 处理Expedia下单失败的订单 -->
+	<bean id="expediaFaildResultTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="expediaFaildResultJobDetail" />
+		<property name="startDelay" value="1000" />
+		<property name="repeatInterval" value="600000" />
+	</bean> 
+	
+	<bean id="expediaFaildResultJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.thayer.idsservice.task.check.ExpediaFaildResultTask</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="iata">
+					<value>${expedia.iata}</value>
+				</entry>
+				<entry key="callFogService">
+					<ref bean="expedia_callFogService"/>
+				</entry>
+				<entry key="resvCallbackService">
+					<ref bean="expedia_resvCallbackService"/>
+				</entry>
+				<entry key="eresvMapDAO">
+					<ref bean="eresvMapDAO"/>
+				</entry>
+				
+				<entry key="epropmapDAO">
+					<ref bean="epropmapDAO"/>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

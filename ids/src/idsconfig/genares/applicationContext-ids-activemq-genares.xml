@@ -1,0 +1,60 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  http://activemq.apache.org/schema/core classpath:schema/activemq-core-5.5.0.xsd"
+	default-autowire="byName">
+    <amq:connectionFactory id="jmsConnectionFactoryGDS" brokerURL="${mq.receive.brokerURL}" />
+
+	<!--  ActiveMQ destinations  -->
+	<amq:queue name="Genares_ReceiveDestination" physicalName="${genares.mq.receive.queue.name}" />
+
+	<!--  Message Driven POJO (MDP) -->
+	<!-- consumer for queue -->
+	<bean id="Genares_queueConsumer" class="com.thayer.idsservice.task.update.UpdateBaseTask">
+		<property name="updateService">
+			<ref bean="genares_updateService" />
+		</property>
+		<property name="thirdIataCode">
+			<value>${genares.iataCode}</value>
+		</property>
+		<property name="alertMailList">
+			<list>
+				<value>${genares.update.add1}</value>
+				<value>${genares.update.add2}</value>
+			</list>
+		</property>
+		<property name="iata">
+			<value>${genares.iata}</value>
+		</property>
+		<property name="iataName">
+			<value>${genares.iataName}</value>
+		</property>
+		<property name="timeoutRecover4ThirdService">
+			<ref bean="genares_timeoutRecover4ThirdService"/>
+		</property>
+	</bean>
+
+	<!-- Message Listener for  -->
+	<bean id="Genares_queueListener"
+		class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+		<constructor-arg ref="Genares_queueConsumer" />
+		<!--  may be other method -->
+		<property name="defaultListenerMethod" value="onMessage" />
+	</bean>
+
+	<!--  listener container，MDP无需实现接口 -->
+	<bean id="Genares_queueListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<!-- 
+		<property name="concurrentConsumers">
+			<value>1</value>
+		</property>
+		 -->
+		<property name="connectionFactory" ref="jmsConnectionFactoryGDS" />
+		<property name="destination" ref="Genares_ReceiveDestination" />
+		<property name="messageListener" ref="Genares_queueListener" />
+	</bean>
+
+
+
+</beans>

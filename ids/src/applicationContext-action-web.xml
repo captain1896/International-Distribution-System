@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-autowire="byName">
+	
+	<!--<import resource="idsconfig/asiarooms/applicationContext-action-web-asiarooms.xml" /> -->
+	
+	<bean id="handlerMapping"
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+
+	<bean id="paramResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName" value="method" />
+	</bean>
+
+
+	<bean name="/web/task.do" class="com.thayer.idsservice.web.TaskManagerAction">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		
+	</bean>
+	
+	<bean name="/web/log.do" class="com.thayer.idsservice.web.LogManagerAction">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="logView">
+			<value>log/logData</value>
+		</property>
+		<property name="logMsgView">
+			<value>log/logMsg</value>
+		</property>
+	</bean>
+	
+	<bean name="/web/prop.do" class="com.thayer.idsservice.web.PropertyAction">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="propertyView">
+			<value>prop/propinfo</value>
+		</property>
+		
+	</bean>
+	
+	<!-- 
+	<bean name="/test.do" class="com.thayer.idsservice.web.TestAction">
+	<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="task">
+			<ref bean="Agoda_queueConsumer" />
+		</property>
+		<property name="eordermailInfoService">
+			<ref bean="eordermailInfoService" />
+		</property>
+	</bean>
+ -->
+
+
+</beans>

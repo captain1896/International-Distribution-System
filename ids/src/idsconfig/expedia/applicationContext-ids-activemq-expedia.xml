@@ -1,0 +1,57 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  http://activemq.apache.org/schema/core classpath:schema/activemq-core-5.5.0.xsd"
+	default-autowire="byName">
+    <amq:connectionFactory id="jmsConnectionFactoryExpedia" brokerURL="${mq.receive.brokerURL}" />
+
+	<!--  ActiveMQ destinations  -->
+	<amq:queue name="Expedia_ReceiveDestination" physicalName="${expedia.mq.receive.queue.name}" />
+
+	<!--  Message Driven POJO (MDP) -->
+	<!-- consumer for queue -->
+	<bean id="Expedia_queueConsumer" class="com.thayer.idsservice.task.update.UpdateBaseTask">
+		<property name="updateService">
+			<ref bean="expedia_updateService" />
+		</property>
+		<property name="thirdIataCode">
+			<value>${expedia.iataCode}</value>
+		</property>
+		<property name="alertMailList">
+			<list>
+				<value>${expedia.update.add1}</value>
+				<value>${expedia.update.add2}</value>
+			</list>
+		</property>
+		<property name="iata">
+			<value>${expedia.iata}</value>
+		</property>
+		<property name="iataName">
+			<value>${expedia.iataName}</value>
+		</property>
+		<property name="timeoutRecover4ThirdService">
+			<ref bean="expedia_timeoutRecover4ThirdService"/>
+		</property>
+	</bean>
+
+	<!-- Message Listener for  -->
+	<bean id="Expedia_queueListener"
+		class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+		<constructor-arg ref="Expedia_queueConsumer" />
+		<!--  may be other method -->
+		<property name="defaultListenerMethod" value="onMessage" />
+	</bean>
+
+	<!--  listener container，MDP无需实现接口 -->
+	<bean id="Expedia_queueListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<!-- 
+		<property name="concurrentConsumers">
+			<value>1</value>
+		</property>
+		 -->
+		<property name="connectionFactory" ref="jmsConnectionFactoryExpedia" />
+		<property name="destination" ref="Expedia_ReceiveDestination" />
+		<property name="messageListener" ref="Expedia_queueListener" />
+	</bean>
+</beans>

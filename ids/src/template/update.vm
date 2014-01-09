@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>价格更新服务报表</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: 微软雅黑;
+	font-size: 12px;
+}
+-->
+</style></head>
+
+
+<body>
+<table width="800" border="1" align="center" cellpadding="0" cellspacing="0">
+  <tr align="center">
+    <td colspan="8"><h1><strong>$!{resultBean.iataName} 价格更新服务报表 </strong></h1></td>
+  </tr>
+  <tr>
+    <td colspan="8"><strong>价格更新失败列表</strong></td>
+  </tr>
+  <tr align="center">
+    <td width="75">Fog酒店号</td>
+    <td width="69">FOG房型</td>
+    <td width="68">FOG计划</td>
+    <td width="73">错误代码</td>
+    <td width="133">错误描述</td>
+    <td width="288">更新内容</td>
+    <td width="78">消息ID</td>
+    <td width="78">生成时间</td>
+  </tr>
+  #foreach( $errorBean in $resultBean.errorlist ) 
+  <tr  bgcolor="#DDDDDD">
+    <td>$!{resultBean.fogProp}</td>
+    <td>$!{resultBean.fogRoom}</td>
+    <td>$!{resultBean.fogRate}</td>
+    <td>$!{errorBean.erroCode}</td>
+    <td>$!{errorBean.errorDesc}</td>
+    <td>$!{resultBean.updateInfo}</td>
+    <td>$!{errorBean.msgId}</td>
+    <td>$!{resultBean.createDate}</td>
+  </tr>
+  <tr>
+    <td colspan="8">错误详情:</td>
+  </tr>
+  <tr>
+    <td colspan="8">$!{errorBean.xml}</td>
+  </tr>
+  #end
+  
+  <tr>
+    <td colspan="8">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

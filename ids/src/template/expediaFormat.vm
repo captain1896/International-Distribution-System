@@ -1,0 +1,234 @@
+<table width="630" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top">
+	<table width="100%" height="800" border="0" align="center" cellpadding="0" cellspacing="0">
+	<tr >
+	<td height="24"align="center" >
+		<table width="98%" border="1" cellspacing="1" cellpadding="5">
+		<tr>
+		<td valign="top">
+		<font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">
+		<font size="6"><b>${ObjectTO.channelDesc}</b></font> ${ObjectTO.title} ( <b>${ObjectTO.dateBooked}</b> )<br />
+		预订酒店:<b>${ObjectTO.propId} - ${ObjectTO.propName}</b><br/>
+		联系电话TEL:<b>021-6122-6688 ext 7800</b> 传真FAX:<b>021-61226683</b><br/>
+		确认编号Conf No.:<b>${ObjectTO.cnfNum}</b> 取消编号Cancel No.:<b>${ObjectTO.cxlNum}</b><br>
+		预订状态Status:<b>${ObjectTO.status}</b> 
+		</font>
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	<tr>
+	<td height="25" valign="top" align="center">
+		<table width="98%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+		<td  width="270" valign="top">
+			<table width="100%"  align="center" border="0" cellspacing="0" cellpadding="0" >
+			<tr>
+			<td height="24" >
+			<b><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">客人信息 Guest Information</font></b>
+			</td>
+			</tr>
+			<tr>
+			<td height="25" align="left">
+				<table width="100%" border="1" align="center" cellpadding="0" cellspacing="1">
+				<tr>
+				<td width="25%">
+				<font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">客户:<br />Name:</font></td>
+				<td><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.firstName} ${ObjectTO.lastName}</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">地址:<br />Address:</font></td>
+				<td><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.guestAddressLine1}</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">电话:</font><br /><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">Tel:</font></td>
+				<td><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.guestPhone}</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">邮箱:<br />Email:</font></td>
+				<td><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.guestEmail}</font> 
+				</td>
+				</tr>
+				</table>
+			</td>
+			</tr>
+			</table>
+		</td>
+		<td width="360" valign="top" align="center">
+			<table width="98%" align="center" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+			<td height="24">
+			<font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2"><b>机构信息 TA/Company Information</b></font>
+			</td>
+			</tr>
+			<tr>
+			<td height="24">
+				<table width="100％" align="center"  border="1" cellspacing="1" cellpadding="0">
+				<tr>
+				<td width="20%"><font size="2">协议编码</font><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">:</font><br>
+				<font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">ID:</font></td>
+				<td colspan="3"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.iata}</font> </td>
+				</tr>
+				<tr>
+				<td width="20%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">名称:</font><br /><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">Name:</font></td>
+				<td colspan="3"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.iataName}</font> </td>
+				</tr>
+				<tr>
+				<td width="20%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">电话:</font><br /><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">Tel:</font></td>
+				<td><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.iataPhone}</font> </td>
+				</tr>
+				<tr>
+				<td width="20%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">邮箱:</font><br /><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">Email:</font></td>
+				<td colspan="3"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.iataEmail}</font> </td>
+				</tr>
+				</table>
+			</td>
+			</tr>
+			</table>
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	<tr>
+	<td height="25" valign="top" align="center">
+		<table width="98%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+		<td  width="100%" valign="top" height="24" align="left">
+		<b><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">备注 Remarks</font></b></td>
+		</tr>
+		<tr>
+		<td width="98%" valign="top" height="24" >
+			<table width="100%" border="1" cellspacing="1" cellpadding="0">
+			<tr>
+			<td colspan="2">
+			<font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.remarks}</font> 
+			</td>
+			</tr>
+			</table>
+		</td>
+		</tr>
+		</table>
+
+	</td>
+	</tr>
+	<tr>
+	<td height="25" valign="top" align="center">
+		<table width="98%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+		<td  width="270" valign="top">
+			<table width="100%"  align="center" border="0" cellspacing="0" cellpadding="0" >
+			<tr>
+			<td height="24" align="left">
+			<font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2"><b>预订信息Stay Information</b></font>
+			</td>
+			</tr>
+			<tr>
+			<td height="25" align="left">
+				<table width="100％" border="1" cellspacing="1" cellpadding="0">
+				<tr>
+				<td>
+				<font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2"></font><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">入住日期<br />
+				StayDay:</font>
+				</td> 
+				<td colspan="3"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.inDate}到店<br/>${ObjectTO.outDate}离店</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">房夜</font><br /><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">Nights:</font></td>
+				<td width="25%" align="center"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.nights}</font> </td>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">房间:</font><br /><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">No.Rms:</font></td>
+				<td width="25%" align="center"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.rooms}</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">房型:</font><br /><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">Room:</font></td>
+				<td width="25%" align="center"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.roomtype}</font> </td>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">计划:</font><br /><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">Plan:</font></td>
+				<td width="25%" align="center"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.paln}</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">成人</font><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">:<br />Adults:</font></td>
+				<td width="25%" align="center"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.adults}</font> </td>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">小孩</font><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">:<br />Child:</font><br></td>
+				<td width="25%" align="center"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.children}</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font size="2">保证制度:</font><br /><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">GtdRule:</font></td>
+				<td colspan="3"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.guaRule}</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font size="2">取消制度:</font><br /><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">CxlRule:</font></td>
+				<td colspan="3"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.cxlRule}</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">预订渠道<br />Channel:</font></td>
+				<td colspan="3"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.gds}</font> </td>
+				</tr>
+				</table>
+			</td>
+			</tr>
+			<tr>
+			<td height="24" align="left"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2"><b>支付信息Payment Information</b></font></td>
+			</tr>
+			<tr>
+			<td height="24" align="left">
+				<table width="100％" border="1" cellspacing="1" cellpadding="0">
+				<tr>
+				<td width="25%"><font size="2">支付方式:<br/>PayType:</font></td>
+				<td><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.ccType}</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">姓名:<br/>Name:</font></td>
+				<td><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.ccName}</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">信用卡号<br/>Number:</font></td>
+				<td><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.ccNumber}</font> </td>
+				</tr>
+				<tr>
+				<td width="25%"><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">有效日期<br/>ExpDate:</font></td>
+				<td><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">${ObjectTO.ccExpiration}</font> </td>
+				</tr>
+				</table>
+			</td>
+			</tr>
+			</table>
+		</td>
+		<td width="360" valign="top" >
+			<table width="98%" align="center" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+			<td height="24"><b><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">总房价Total Revenue: ${ObjectTO.totalRevenue}</font></b></td>
+			</tr>
+			<tr>
+			<td height="24"><b><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">每天房价Booked Rates</font></b></td>
+			</tr>
+			<tr>
+			<td>${ObjectTO.mailRates}</td>
+			</tr>
+			</table>
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	<tr>
+	<td height="25" valign="top" align="center">
+		<table width="98%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+		<td  width="100%" valign="top" height="24" align="left">
+		<b><font style="font-family:Verdana, Arial, Helvetica, sans-serif" size="2">更改历史记录 History</font></b></td>
+		</tr>
+		<tr>
+		<td width="98%" valign="top" height="24" >
+		${ObjectTO.modHist}
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
+

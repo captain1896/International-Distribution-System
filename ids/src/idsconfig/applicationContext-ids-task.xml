@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="false">
+
+	<bean id="ids_recoverMailTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="ids_resoverMailJobDetail" />
+
+		<!-- 10 seconds -->
+		<property name="startDelay" value="40000" />
+		<!-- repeat every 50 seconds -->
+		<property name="repeatInterval" value="1200000" />
+	</bean>
+
+	<bean id="ids_resoverMailJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.thayer.idsservice.task.mail.RecoverSendMailTask</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="mailService">
+					<ref bean="mailService" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>

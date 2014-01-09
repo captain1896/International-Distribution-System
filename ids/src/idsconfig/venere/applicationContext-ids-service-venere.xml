@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="false" default-autowire="byName">
+
+	<bean id="venere_downLoadService"
+		class="com.thayer.idsservice.ids.venere.download.service.VenereDownloadService">
+		<property name="bookingListUrl">
+			<value>${venere.webservice.OTA_READ}</value>
+		</property>
+		<property name="venereUserId">
+			<value>${venere.UserID}</value>
+		</property>
+		<property name="venereUserPwd">
+			<value>${venere.UserPSW}</value>
+		</property>
+		<property name="venereOrgId">
+			<value>${venere.UserOrgID}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="callFogService">
+			<ref bean="venere_callFogService"/>
+		</property>
+		<property name="timeSetKey">
+			<value>venereDownload.LastModifyDate</value>
+		</property>
+		<property name="timeSetKeySplit">
+			<value>true</value>
+		</property>
+		<property name="settingFile">
+			<value>idsconfig/venere/time_setting.properties</value>
+		</property>
+		<property name="validateResvRate">
+			<value>false</value>
+		</property>
+		<property name="timeZone">
+			<value>${venere.TimeZone}</value>
+		</property>
+		<property name="preTime">
+			<value>${venere.PreTime}</value>
+		</property>
+	</bean>
+
+	<bean id="venere_updateService"
+		class="com.thayer.idsservice.ids.venere.update.service.VenereUpdateService">
+		<property name="hotelAvailNotifUrl">
+			<value>${venere.webservice.OTA_HotelAvailNotif}</value>
+		</property>
+		<property name="hotelRateAmountNotifUrl">
+			<value>${venere.webservice.OTA_HotelRateAmountNotif}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="venereUserId">
+			<value>${venere.UserID}</value>
+		</property>
+		<property name="venereUserPwd">
+			<value>${venere.UserPSW}</value>
+		</property>
+		<property name="venereOrgId">
+			<value>${venere.UserOrgID}</value>
+		</property>
+		<property name="callFogService">
+			<ref bean="venere_callFogService"/>
+		</property>
+		<property name="dbCacheFilterService">
+			<ref bean="venere_dbCacheFilterService"/>
+		</property>
+		<property name="eratemapDAO">
+			<ref bean="eratemapDAO"/>
+		</property>
+		<property name="ideType" value="VENERE" />
+	</bean>
+
+
+	<bean id="venere_timeoutRecover4ThirdService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${venere.webservice.OTA_PING}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService" />
+		</property>
+	</bean>
+	
+	<bean id="venere_timeoutRecover4ThirdDlService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${venere.webservice.OTA_READ}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService" />
+		</property>
+	</bean>
+
+	<bean id="venere_timeoutRecover4FogService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${fogEx.url}</value>
+		</property>
+	</bean>
+	
+	<bean id="venere_callFogService" class="com.thayer.idsservice.service.SimpleCallFogService">
+		<property name="fogUser">
+			<value>${venere.fog.UserID}</value>
+		</property>
+		<property name="fogPassword">
+			<value>${venere.fog.UserPSW}</value>
+		</property>
+		<property name="fogExUrl">
+			<value>${fogEx.url}</value>
+		</property>
+	</bean>
+	<bean id="venere_dbCacheFilterService"
+		class="com.thayer.idsservice.service.DbCacheFilterService">
+		<property name="eIdsCacheDAO"  ref="eIdsCacheDAO"/>
+	</bean>
+
+</beans>

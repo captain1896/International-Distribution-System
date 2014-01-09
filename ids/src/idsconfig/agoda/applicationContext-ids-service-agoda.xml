@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="false" default-autowire="byName">
+
+	<bean id="agoda_downLoadService"
+		class="com.thayer.idsservice.ids.agoda.download.service.AgodaDownloadService">
+		<property name="bookingListUrl">
+			<value>${agoda.url}</value>
+		</property>
+		<property name="bookingDetailUrl">
+			<value>${agoda.url}</value>
+		</property>
+		<property name="timeSetKey">
+			<value>agodaDownload.LastModifyDate</value>
+		</property>
+		<property name="timeSetKeySplit">
+			<value>false</value>
+		</property>
+		<property name="agodaUserId">
+			<value>${agoda.UserID}</value>
+		</property>
+		<property name="agodaUserPwd">
+			<value>${agoda.UserPSW}</value>
+		</property>
+		<property name="settingFile">
+			<value>idsconfig/agoda/time_setting.properties</value>
+		</property>
+		<property name="requestXmlKey">
+			<value>${agoda.requestXmlKey}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="callFogService">
+			<ref bean="agoda_callFogService"/>
+		</property>
+	</bean>
+
+	<bean id="agoda_updateService"
+		class="com.thayer.idsservice.ids.agoda.update.service.AgodaUpdateService">
+		<property name="thirdRequestXmlURL">
+			<value>${agoda.url}</value>
+		</property>
+		<property name="requestXmlKey">
+			<value>${agoda.requestXmlKey}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="agodaUserId">
+			<value>${agoda.UserID}</value>
+		</property>
+		<property name="agodaUserPwd">
+			<value>${agoda.UserPSW}</value>
+		</property>
+		<property name="callFogService">
+			<ref bean="agoda_callFogService"/>
+		</property>
+		<property name="dbCacheFilterService">
+			<ref bean="agoda_dbCacheFilterService"/>
+		</property>
+		<property name="eratemapDAO">
+			<ref bean="eratemapDAO"/>
+		</property>
+		<property name="ideType" value="AGODA" />
+	</bean>
+
+
+	<bean id="agoda_timeoutRecover4ThirdService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${agoda.url}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+	</bean>
+
+	<bean id="agoda_timeoutRecover4FogService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${fogEx.url}</value>
+		</property>
+	</bean>
+
+	<bean id="agoda_rsCheckService"
+		class="com.thayer.idsservice.ids.agoda.update.service.AgodaRsCheckService">
+		<property name="agodaUserId">
+			<value>${agoda.UserID}</value>
+		</property>
+		<property name="agodaUserPwd">
+			<value>${agoda.UserPSW}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="requestXmlKey">
+			<value>${agoda.requestXmlKey}</value>
+		</property>
+		<property name="thirdRequestXmlURL">
+			<value>${agoda.url}</value>
+		</property>
+	</bean>
+	<bean id="agoda_dbCacheFilterService"
+		class="com.thayer.idsservice.service.DbCacheFilterService">
+		<property name="eIdsCacheDAO"  ref="eIdsCacheDAO"/>
+	</bean>
+
+	<bean id="agoda_callFogService" class="com.thayer.idsservice.service.SimpleCallFogService">
+		<property name="fogUser">
+			<value>${agoda.fog.UserID}</value>
+		</property>
+		<property name="fogPassword">
+			<value>${agoda.fog.UserPSW}</value>
+		</property>
+		<property name="fogExUrl">
+			<value>${fogEx.url}</value>
+		</property>
+	</bean>
+</beans>

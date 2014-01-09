@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="false" default-autowire="byName">
+
+	
+
+	<bean id="asiarooms_updateService"
+		class="com.thayer.idsservice.ids.asiarooms.update.service.AsiaroomsUpdateService">
+		<property name="thirdRequestXmlURL">
+			<value>${asiarooms.url}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="asiaroomsUserId">
+			<value>${asiarooms.UserID}</value>
+		</property>
+		<property name="asiaroomsUserPwd">
+			<value>${asiarooms.UserPSW}</value>
+		</property>
+		<property name="callFogService">
+			<ref bean="asiarooms_callFogService"/>
+		</property>
+		<property name="eratemapDAO">
+			<ref bean="eratemapDAO"/>
+		</property>
+		<property name="iata">
+			<value>${asiarooms.iata}</value>
+		</property>
+	</bean>
+
+
+	<bean id="asiarooms_timeoutRecover4ThirdService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${asiarooms.url}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+	</bean>
+
+	<bean id="asiarooms_timeoutRecover4FogService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${fogEx.url}</value>
+		</property>
+	</bean>
+	
+	<bean id="asiarooms_receiceResvService"
+		class="com.thayer.idsservice.ids.asiarooms.receive.service.AsiaroomsReceiveResvService">
+		<property name="iata">
+			<value>${asiarooms.iata}</value>
+		</property>
+		<property name="thirdIataCode">
+			<value>${asiarooms.iataCode}</value>
+		</property>
+		<property name="callFogService">
+			<ref bean="asiarooms_callFogService"/>
+		</property>
+		<property name="validateResvRate">
+			<value>false</value>
+		</property>
+				<property name="asiaroomsUserId">
+			<value>${asiarooms.UserID}</value>
+		</property>
+		<property name="asiaroomsUserPwd">
+			<value>${asiarooms.UserPSW}</value>
+		</property>
+	</bean>
+
+	<bean id="asiarooms_receiveQueryHotelAvailService"
+		class="com.thayer.idsservice.ids.asiarooms.receive.service.AsiaroomsReceiveQueryHotelAvailService">
+		<property name="thirdIataCode">
+			<value>${asiarooms.iataCode}</value>
+		</property>
+		<property name="iata">
+			<value>${asiarooms.iata}</value>
+		</property>
+		<property name="eratemapDAO">
+			<ref bean="eratemapDAO"/>
+		</property>
+		<property name="callFogService">
+			<ref bean="asiarooms_callFogService"/>
+		</property>
+		<property name="asiaroomsUserId">
+			<value>${asiarooms.UserID}</value>
+		</property>
+		<property name="asiaroomsUserPwd">
+			<value>${asiarooms.UserPSW}</value>
+		</property>
+	</bean>
+	
+	<bean id="asiarooms_receiveResvCancelService"
+		class="com.thayer.idsservice.ids.asiarooms.receive.service.AsiaroomsReceiveResvCancelService">
+		<property name="iata">
+			<value>${asiarooms.iata}</value>
+		</property>
+		<property name="thirdIataCode">
+			<value>${asiarooms.iataCode}</value>
+		</property>
+		<property name="callFogService">
+			<ref bean="asiarooms_callFogService"/>
+		</property>
+				<property name="asiaroomsUserId">
+			<value>${asiarooms.UserID}</value>
+		</property>
+		<property name="asiaroomsUserPwd">
+			<value>${asiarooms.UserPSW}</value>
+		</property>
+	</bean>
+	
+	
+	<bean id="asiarooms_callFogService" class="com.thayer.idsservice.service.SimpleCallFogService">
+		<property name="fogUser">
+			<value>${asiarooms.fog.UserID}</value>
+		</property>
+		<property name="fogPassword">
+			<value>${asiarooms.fog.UserPSW}</value>
+		</property>
+		<property name="fogExUrl">
+			<value>${fogEx.url}</value>
+		</property>
+	</bean>
+	
+	<bean id="asiarooms_transPropertyService" class="com.thayer.idsservice.ids.asiarooms.trans.AsiaroomsTransPropertyService">
+		<property name="thirdRequestXmlURL">
+			<value>${asiarooms.url}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="asiaroomsUserId">
+			<value>${asiarooms.UserID}</value>
+		</property>
+		<property name="asiaroomsUserPwd">
+			<value>${asiarooms.UserPSW}</value>
+		</property>
+	</bean>
+</beans>

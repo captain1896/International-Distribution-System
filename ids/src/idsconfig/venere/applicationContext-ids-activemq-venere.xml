@@ -1,0 +1,53 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  http://activemq.apache.org/schema/core classpath:schema/activemq-core-5.5.0.xsd"
+	default-autowire="byName">
+    <amq:connectionFactory id="jmsConnectionFactoryVenere" brokerURL="${mq.receive.brokerURL}" />
+    
+	<!--  ActiveMQ destinations  -->
+	<amq:queue name="Venere_ReceiveDestination" physicalName="${venere.mq.receive.queue.name}" />
+	
+	<!--  Message Driven POJO (MDP) -->
+	<!-- consumer for queue -->
+	<bean id="Venere_queueConsumer" class="com.thayer.idsservice.task.update.UpdateBaseTask">
+		<property name="updateService">
+			<ref bean="venere_updateService" />
+		</property>
+		<property name="thirdIataCode">
+			<value>${venere.iataCode}</value>
+		</property>
+		<property name="alertMailList">
+			<list>
+				<value>${venere.update.add1}</value>
+				<value>${venere.update.add2}</value>
+			</list>
+		</property>
+		<property name="iata">
+			<value>${venere.iata}</value>
+		</property>
+		<property name="iataName">
+			<value>${venere.iataName}</value>
+		</property>
+		<property name="timeoutRecover4ThirdService">
+			<ref bean="venere_timeoutRecover4ThirdService" />
+		</property>
+	</bean>
+
+	<!-- Message Listener for  -->
+	<bean id="Venere_queueListener"
+		class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+		<constructor-arg ref="Venere_queueConsumer" />
+		<!--  may be other method -->
+		<property name="defaultListenerMethod" value="onMessage" />
+	</bean>
+
+	<!--  listener container，MDP无需实现接口 -->
+	<!-- <bean id="Venere_queueListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="jmsConnectionFactoryVenere" />
+		<property name="destination" ref="Venere_ReceiveDestination" />
+		<property name="messageListener" ref="Venere_queueListener" />
+	</bean> -->
+	
+</beans>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<!-- the transactional semantics... -->
+		<tx:attributes>
+			<!-- all methods starting with 'get' are read-only -->
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+			<!-- other methods use the default transaction settings (see below) -->
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="idsServiceOperation"
+			expression="execution(* com.thayer.idsservice.task.receive.interf.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice"
+			pointcut-ref="idsServiceOperation" />
+		<aop:advisor id="httpAccessadvisor" advice-ref="httpAccessAdvice" pointcut="execution(* com.thayer.idsservice.service.HttpClientService_v3.postHttpRequest(..))"/>
+	</aop:config>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">  
+        <property name="driverClassName" value="${db.driverClass}"/>  
+        <property name="url" value="${db.jdbcUrl}"/>  
+        <property name="username" value="${db.user}"/>  
+        <property name="password" value="${db.password}"/>  
+        <property name="maxActive" value="10"/>  
+        <property name="maxWait" value="${db.maximumConnectionCount}"/>  
+        <property name="poolPreparedStatements" value="true"/>  
+        <property name="defaultAutoCommit" value="true"/>  
+        <property name="removeAbandoned" value="true"/>  
+        <property name="logAbandoned" value="false"/>  
+        <property name="minEvictableIdleTimeMillis" value="10"/>  
+        <property name="removeAbandonedTimeout" value="20"/>  
+    </bean> 
+    <bean id="dataSource_log" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">  
+        <property name="driverClassName" value="${db.driverClass}"/>  
+        <property name="url" value="${logdb.jdbcUrl}"/>  
+        <property name="username" value="${logdb.user}"/>  
+        <property name="password" value="${logdb.password}"/>  
+        <property name="maxActive" value="10"/>  
+        <property name="maxWait" value="${db.maximumConnectionCount}"/>  
+        <property name="poolPreparedStatements" value="true"/>  
+        <property name="defaultAutoCommit" value="true"/>  
+        <property name="removeAbandoned" value="true"/>  
+        <property name="logAbandoned" value="false"/>  
+        <property name="minEvictableIdleTimeMillis" value="10"/>  
+        <property name="removeAbandonedTimeout" value="20"/>  
+    </bean> 
+	
+	<!-- <bean id="dateSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+		<property name="driver">
+			<value>${db.driverClass}</value>
+		</property>
+		<property name="driverUrl">
+			<value><![CDATA[${db.jdbcUrl}]]></value>
+		</property>
+		<property name="user">
+			<value>${db.user}</value>
+		</property>
+		<property name="password">
+			<value>${db.password}</value>
+		</property>
+		<property name="maximumConnectionCount">
+			<value>${db.maximumConnectionCount}</value>
+		</property>
+		<property name="houseKeepingTestSql">
+			<value>${db.houseKeepingTestSql}</value>
+		</property>
+		<property name="testBeforeUse">
+			<value>${db.testBeforeUse}</value>
+		</property>
+	</bean>
+	
+	<bean id="dateSource_log" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+		<property name="driver">
+			<value>${db.driverClass}</value>
+		</property>
+		<property name="driverUrl">
+			<value><![CDATA[${logdb.jdbcUrl}]]></value>
+		</property>
+		<property name="user">
+			<value>${logdb.user}</value>
+		</property>
+		<property name="password">
+			<value>${logdb.password}</value>
+		</property>
+		<property name="maximumConnectionCount">
+			<value>${db.maximumConnectionCount}</value>
+		</property>
+		<property name="houseKeepingTestSql">
+			<value>${db.houseKeepingTestSql}</value>
+		</property>
+		<property name="testBeforeUse">
+			<value>${db.testBeforeUse}</value>
+		</property>
+	</bean> -->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.Oracle9Dialect
+				</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.cache.use_query_cache">false</prop>
+				<prop key="hibernate.cache.use_second_level_cache">
+					false
+				</prop>
+				<prop key="hibernate.cache.provider_class">
+					org.hibernate.cache.EhCacheProvider
+				</prop>
+				<!--
+					<prop
+					key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop>
+					<prop key="hibernate.generate_statistics">true</prop> <prop
+					key="hibernate.bytecode.use_reflection_optimizer">true</prop> <prop
+					key="hibernate.prepare_sql">true</prop> <prop
+					key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</prop>
+				-->
+				<prop key="hibernate.default_schema">
+					${db.default_schema}
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">false</prop>
+				<prop key="hibernate.jdbc.fetch_size">80</prop>
+				<prop key="hibernate.jdbc.batch_size">100</prop>
+			</props>
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<value>
+					classpath*:com/thayer/idsservice/dao/*.hbm.xml
+				</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="sessionFactory_log"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource_log" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.Oracle9Dialect
+				</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.cache.use_query_cache">false</prop>
+				<prop key="hibernate.cache.use_second_level_cache">
+					false
+				</prop>
+				<prop key="hibernate.cache.provider_class">
+					org.hibernate.cache.EhCacheProvider
+				</prop>
+				<!--
+					<prop
+					key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop>
+					<prop key="hibernate.generate_statistics">true</prop> <prop
+					key="hibernate.bytecode.use_reflection_optimizer">true</prop> <prop
+					key="hibernate.prepare_sql">true</prop> <prop
+					key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</prop>
+				-->
+				<prop key="hibernate.default_schema">
+					${logdb.default_schema}
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">false</prop>
+				<prop key="hibernate.jdbc.fetch_size">80</prop>
+				<prop key="hibernate.jdbc.batch_size">100</prop>
+			</props>
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<value>
+					classpath*:com/thayer/idsservice/dao/EHttpLog.hbm.xml
+				</value>
+				<value>
+					classpath*:com/thayer/idsservice/dao/EMsgLog.hbm.xml
+				</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="eresvMapDAO" class="com.thayer.idsservice.dao.EResvMapDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="epropmapDAO" class="com.thayer.idsservice.dao.EPropmapDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="eroommapDAO" class="com.thayer.idsservice.dao.ERoommapDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="eratemapDAO" class="com.thayer.idsservice.dao.ERatemapDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="eexwebinfoDAO" class="com.thayer.idsservice.dao.EExwebinfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="emsgLogDAO"
+		class="com.thayer.idsservice.dao.EMsgLogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory_log" />
+		</property>
+	</bean>
+	<bean id="eIdsCacheDAO" class="com.thayer.idsservice.dao.EIdsCacheDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="eordermailInfoDAO" class="com.thayer.idsservice.dao.EOrdermailInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ehttpLogDAO" class="com.thayer.idsservice.dao.EHttpLogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory_log" />
+		</property>
+	</bean>
+</beans>

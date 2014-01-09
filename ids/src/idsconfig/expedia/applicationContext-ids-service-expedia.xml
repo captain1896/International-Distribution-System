@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="false" default-autowire="byName">
+
+
+
+	<bean id="expedia_updateService"
+		class="com.thayer.idsservice.ids.expedia.update.service.ExpediaUploadService">
+		<property name="thirdRequestXmlURL">
+			<value>${expedia.ar.url}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="callFogService">
+			<ref bean="expedia_callFogService" />
+		</property>
+		<property name="dbCacheFilterService">
+			<ref bean="expedia_dbCacheFilterService"/>
+		</property>
+		<property name="eratemapDAO">
+			<ref bean="eratemapDAO"/>
+		</property>
+		<!-- 
+		<property name="ideType" value="EXPEDIA" />
+		 -->
+	</bean>
+
+
+	<bean id="expedia_timeoutRecover4ThirdService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${expedia.ar.url}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+	</bean>
+
+	<bean id="expedia_timeoutRecover4ThirdServiceBR"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${expedia.br.url}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+	</bean>
+
+	<bean id="expedia_timeoutRecover4FogService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${fogEx.url}</value>
+		</property>
+	</bean>
+
+	<bean id="expedia_downLoadService"
+		class="com.thayer.idsservice.ids.expedia.download.service.ExpediaDownloadService">
+		<property name="bookingListUrl">
+			<value>${expedia.br.url}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="callFogService">
+			<ref bean="expedia_callFogService" />
+		</property>
+		<property name="validateResvRate">
+			<value>false</value>
+		</property>
+	</bean>
+
+	<bean id="expedia_callFogService" class="com.thayer.idsservice.service.SimpleCallFogService">
+		<property name="fogUser">
+			<value>${expedia.fog.UserID}</value>
+		</property>
+		<property name="fogPassword">
+			<value>${expedia.fog.UserPSW}</value>
+		</property>
+		<property name="newResvMsgtype">
+			<value>${expedia.resv.new.msgtype}</value>
+		</property>
+		<property name="modResvMsgtype">
+			<value>${expedia.resv.mod.msgtype}</value>
+		</property>
+		<property name="cancelResvMsgtype">
+			<value>${expedia.resv.cxl.msgtype}</value>
+		</property>
+		<property name="fogExUrl">
+			<value>${fogEx.url}</value>
+		</property>
+		<property name="needTrySpecResv">
+			<value>false</value>
+		</property>
+	</bean>
+
+	<bean id="expedia_resvCallbackService"
+		class="com.thayer.idsservice.ids.expedia.download.service.ExpediaResvCallbackService">
+		<property name="mailService">
+			<ref bean="mailService" />
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="timeoutRecover4ThirdService">
+			<ref bean="expedia_timeoutRecover4ThirdServiceBR" />
+		</property>
+		<property name="alertMailList">
+			<list>
+				<value>${expedia.resvMail.add1}</value>
+				<value>${expedia.resvMail.add2}</value>
+			</list>
+		</property>
+		<property name="url">
+			<value>${expedia.bc.url}</value>
+		</property>
+		
+	</bean>
+	<bean id="expedia_dbCacheFilterService"
+		class="com.thayer.idsservice.service.DbCacheFilterService">
+		<property name="eIdsCacheDAO"  ref="eIdsCacheDAO"/>
+	</bean>
+</beans>

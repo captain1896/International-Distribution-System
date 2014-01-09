@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="false">
+	<!-- Agoda Resv Download task begin -->
+	<bean id="asiaroomsDlResvTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="asiaroomsDljobDetail" />
+		<!-- 120 seconds -->
+		<property name="startDelay" value="20000" />
+		<!-- repeat every 480 seconds -->
+		<property name="repeatInterval" value="600000" />
+	</bean>
+
+	<bean id="asiaroomsDljobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.thayer.idsservice.task.download.ResvCheckStatusBaseTask</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				
+				<entry key="mailService">
+					<ref bean="mailService"/>
+				</entry>		
+		
+				<entry key="thirdIataCode">
+					<value>${asiarooms.iataCode}</value>
+				</entry>
+				<entry key="iata">
+					<value>${asiarooms.iata}</value>
+				</entry>
+				<entry key="iataName">
+					<value>${asiarooms.iataName}</value>
+				</entry>
+
+				<entry key="timeoutRecover4FogService">
+					<ref bean="asiarooms_timeoutRecover4FogService"/>
+				</entry>
+				<entry key="eresvMapDAO">
+					<ref bean="eresvMapDAO"/>
+				</entry>
+				<entry key="callFogService">
+					<ref bean="asiarooms_callFogService"/>
+				</entry>
+				<entry key="alertMailList">
+					<list>
+						<value>${asiarooms.resvMail.add1}</value>
+						<value>${asiarooms.resvMail.add3}</value>
+					</list>
+				</entry>			
+			</map>
+		</property>
+	</bean>
+	<!-- Agoda Resv Download task end -->
+	
+</beans>

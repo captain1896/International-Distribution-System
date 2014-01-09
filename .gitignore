@@ -9,3 +9,17 @@ bin-release/
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
+
+#ids ignore fiels
+ids/.settings
+ids/.svn
+ids/bin
+ids/build
+ids/dist
+ids/doc
+ids/ProductEnv-Config
+ids/ProductEnv-Config-AsiaRooms
+ids/ProductEnv-Config-Expedia
+ids/ProductEnv-Config-genares
+.classpath
+.project

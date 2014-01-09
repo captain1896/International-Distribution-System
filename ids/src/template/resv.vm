@@ -1,0 +1,712 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: 微软雅黑;
+	font-size: 12px;
+}
+-->
+</style></head>
+
+
+<body>
+<table width="800" border="1" align="center" cellpadding="0" cellspacing="0">
+  <tr align="center">
+    <td colspan="6"><h1><strong>$!{resultBean.iataName} 订单下载服务报表 </strong></h1></td>
+  </tr>
+
+  <tr>
+    <td colspan="6" height="26"><strong>订单下载失败列表</strong></td>
+  </tr>
+  <tr align="center">
+    <td>IDS酒店号</td>
+    <td>IDS订单号</td>
+    <td>Fog酒店号</td>
+    <td>错误代码</td>
+    <td width="280">错误描述</td>
+    <td width="97">生成时间</td>
+  </tr>
+  
+   #foreach( $errorBean in $resultBean.errorlist ) 
+  <tr  bgcolor="#DDDDDD">
+    <td>$!{errorBean.idsProp}</td>
+	<td>$!{errorBean.ids_cnfnum}</td>
+	<td>$!{errorBean.fogProp}</td>
+    <td>$!{errorBean.erroCode}</td>
+    <td>$!{errorBean.errorDesc}</td>
+    <td>$!{resultBean.createDate}</td>
+  </tr>
+  <tr>
+    <td colspan="6">IDS订单详情:</td>
+  </tr>
+  <tr>
+    <td colspan="6">
+    #if ($errorBean.tResvBase)
+    	<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="90%" bgcolor=white style='width:90.0%;background:white'>
+		   <tr>
+			  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=center style='text-align:center'><b><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580;font-weight:bold'>Booking Details</span></font></b><font
+			  size=3 color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'></span></font></p>
+			  </td>
+			</tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Reservation number</span></font></p>
+			</td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.outcnfnum} </span></font></p>
+			</td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Booking    Date </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.bookeddateStr}</span></font></p></td>
+		  </tr>
+		  
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Arrival </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.indateStr}</span></font></p></td>
+		  </tr>
+		  
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Departure</span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.outdateStr}</span></font></p></td>
+		  </tr>
+		  
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Booking    Type </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.resvtype}</span></font></p></td>
+		  </tr>
+		  
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Room   Type </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.roomcode}</span></font></p></td>
+		  </tr>
+		  
+		   <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Rate   Type </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.rateClass}</span></font></p></td>
+		  </tr>
+		  
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Hotel    Number &amp; Name </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.prop}-$!{errorBean.tResvBase.propname}</span></font>  </p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Booker    Name </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.gfirstname}    $!{errorBean.tResvBase.glastname}</span></font></p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>E-mail </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.guestmail}</span></font>  </p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Street </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.guestaddress}</span></font></p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>City </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.guestcity}</span></font></p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Country </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.guestcountry}</span></font> </p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Telephone </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.guestphone}</span></font> </p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Total  Rooms </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.rooms} </span></font> </p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Total  Adults </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.adults} </span></font></p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Total  Children </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.children} </span></font></p></td>
+		  </tr>
+		   <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Total  Nights </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.nights}</span></font> </p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Total   Costs</span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.propCurrency}    $!{errorBean.tResvBase.proptotalrevenue}</span></font> </p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Guest    Remarks </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.remark} </span></font></p></td>
+		  </tr>
+		  
+		   <tr>
+			  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=center style='text-align:center'><b><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580;font-weight:bold'><br>
+			  Guest Details</span></font></b><font size=3 color="#003580" face=Arial><span
+			  lang=EN-US style='font-size:12.0pt;font-family:Arial;color:#003580'><o:p></o:p></span></font></p>
+			  </td>
+		  </tr>
+		  
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Guest    Name </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.guestname}</span></font></p></td>
+		  </tr>
+		  
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Guest    Phone </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.guestphone}</span></font></p></td>
+		  </tr>
+		  
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Guest    Mail </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.guestmail}</span></font></p></td>
+		  </tr>
+		  
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Guest    Address </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.guestaddress}</span></font></p></td>
+		  </tr>
+		  
+		  <tr>
+		    <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=center style='text-align:center'><b><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580;font-weight:bold'>Payment Information</span></font></b><font
+			  size=3 color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'></span></font></p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>保证金制度 </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.guaCode} </span></font></p></td>
+		  </tr>
+		  
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Credit  Card  Type </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.cctype} </span></font></p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Credit  Card  Number </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.ccnumber} </span></font></p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Credit  Card Holder's Name </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'> $!{errorBean.tResvBase.ccname}  </span></font></p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Credit   Card  CVC-Code </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.cvv} </span></font></p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Credit   Card  Expiration Date </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>$!{errorBean.tResvBase.ccexpiration} </span></font></p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Issue    Number </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>    </span></font></p></td>
+		  </tr>
+		  <tr>
+		    <td style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>Start    Date </span></font></p></td>
+		    <td style='padding:.75pt .75pt .75pt .75pt'>
+			  <p class=MsoNormal align=left style='text-align:left'><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'>   </span></font></p></td>
+		  </tr>
+		  <tr>
+		   <td colspan=2 style='padding:.75pt .75pt .75pt .75pt' nowrap="nowrap">
+			  <p class=MsoNormal align=center style='text-align:center'><b><font size=3
+			  color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580;font-weight:bold'>
+		      Room Rate details</strong></p></td>
+		  </tr>
+			<tr>
+	           <td colspan="2"><p><strong>每天房价</strong><strong>Booked        Rates</span></font></b><font
+			  size=3 color="#003580" face=Arial><span lang=EN-US style='font-size:12.0pt;
+			  font-family:Arial;color:#003580'></span></font></p></td>
+	        </tr>
+	         <tr>
+	          	<td colspan="2"><div align="center">
+	                      <table border="1" cellspacing="0" cellpadding="0" width="100%">
+	                       <tr>
+	                          <td><p>日期 date</p></td>
+	                          <td><p>价格 rate</p></td>
+	                        </tr>
+	                      	#foreach( $resvrate in $errorBean.tResvBase.resvRateList ) 
+	                        <tr>
+	                          <td><p>$!{resvrate.bookendatestr}</p></td>
+	                          <td><p>$!{resvrate.proprevenue}</p></td>
+	                        </tr>
+	                        
+	                        #end
+	                      </table>
+	             	</div>
+	             </td>
+	         </tr>
+		 
+		</table>
+    #else
+    	$!{errorBean.xml}
+    #end
+    </td>
+  </tr>
+  #end 
+  <tr bgcolor="#666666">
+    <td height="10" colspan="6">&nbsp;</td>
+  </tr>
+  
+   <tr>
+    <td height="26" colspan="6"><strong>订单下载成功列表</strong></td>
+  </tr>
+  <tr align="center">
+    <td width="106">IDS酒店号</td>
+    <td width="94">IDS订单号</td>
+    <td width="118">Fog酒店号</td>
+    <td width="91">Fog订单号</td>
+    <td>备注</td>
+    <td>生成时间</td>
+  </tr>
+  
+   #foreach( $successBean in $resultBean.successlist ) 
+    
+	  <tr  bgcolor="#DDDDDD">
+	    <td>$!{successBean.idsProp}</td>
+	    <td>$!{successBean.ids_cnfnum}</td>
+	    <td>$!{successBean.fogProp}</td>
+	    <td>$!{successBean.cnfnum}</td>
+	    <td>$!{successBean.remark}</td>
+	    <td>$!{resultBean.createDate}</td>
+	  </tr>
+	  <tr>
+	    <td colspan="6">FOG订单详情:</td>
+	  </tr>
+	   <tr>
+	    <td colspan="6"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+	      <tr>
+	        <td><div align="center">
+	          <table border="1" cellspacing="1" cellpadding="0" width="98%">
+	            <tr>
+	              <td height="70" valign="top"><p><strong>$!{resultBean.iataName}</strong> $!{successBean.mailFogResvBaseBean.iataName} :$!{successBean.mailFogResvBaseBean.cnfnum} 成功处理. ( <strong>$resultBean.createDate</strong> )<br />
+	                预订酒店:<strong>$!{successBean.fogProp}- </strong><strong>$!{successBean.mailFogResvBaseBean.propName}</strong><br />
+	                确认编号Conf No.:<strong>$!{successBean.cnfnum}</strong> 
+	                预订状态Status:<strong>$!{success.mailFogResvBean.status}</strong>
+	                预订类型 ResvType: <strong>$!{successBean.mailFogResvBaseBean.resvtype} </strong>        
+	                </p></td>
+	            </tr>
+	          </table>
+	        </div></td>
+	      </tr>
+	      <tr>
+	        <td valign="top"><div align="center">
+	          <table border="0" cellspacing="0" cellpadding="0" width="98%">
+	            <tr>
+	              <td width="270" valign="top"><div align="center">
+	                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+	                  <tr>
+	                    <td><p><strong>客人信息</strong><strong> Guest Information</strong></p></td>
+	                  </tr>
+	                  <tr>
+	                    <td><div align="center">
+	                      <table border="1" cellspacing="1" cellpadding="0" width="100%">
+	                        <tr>
+	                          <td width="25%"><p>客户:<br />
+	                            Name: </p></td>
+	                          <td><p>$!{successBean.mailFogResvBaseBean.gfirstname} $!{successBean.mailFogResvBaseBean.glastname}</p></td>
+	                        </tr>
+	                        <tr>
+	                          <td width="25%"><p>地址:<br />
+	                            Address: </p></td>
+	                          <td>$!{successBean.mailFogResvBaseBean.guestaddress}</td>
+	                        </tr>
+	                        <tr>
+	                          <td width="25%"><p>电话:<br />
+	                            Tel: </p></td>
+	                          <td>$!{successBean.mailFogResvBaseBean.guestphone}</td>
+	                        </tr>
+	                        <tr>
+	                          <td width="25%"><p>邮箱:<br />
+	                            Email: </p></td>
+	                          <td>$!{successBean.mailFogResvBaseBean.guestmail}</td>
+	                        </tr>
+	                      </table>
+	                    </div></td>
+	                  </tr>
+	                </table>
+	              </div></td>
+	              <td width="360" valign="top"><div align="center">
+	                <table border="0" cellspacing="0" cellpadding="0" width="98%">
+	                  <tr>
+	                    <td><p><strong>机构信息</strong><strong> TA/Company Information</strong></p></td>
+	                  </tr>
+	                  <tr>
+	                    <td><div align="center">
+	                      <table border="1" cellspacing="1" cellpadding="0">
+	                        <tr>
+	                          <td width="20%"><p>协议编码:<br />
+	                            ID: </p></td>
+	                          <td colspan="3"><p>$!{successBean.mailFogResvBaseBean.iata}</p></td>
+	                        </tr>
+	                        <tr>
+	                          <td width="20%"><p>名称:<br />
+	                            Name: </p></td>
+	                          <td colspan="3"><p>$!{successBean.mailFogResvBaseBean.iataName}</p></td>
+	                        </tr>
+	                        <tr>
+	                          <td width="20%"><p>电话:<br />
+	                            Tel: </p></td>
+	                          <td><p>$!{successBean.mailFogResvBaseBean.iataPhone}</p></td>
+	                          <td></td>
+	                          <td></td>
+	                        </tr>
+	                        <tr>
+	                          <td width="20%"><p>邮箱:<br />
+	                            Email: </p></td>
+	                          <td colspan="3">$!{successBean.mailFogResvBaseBean.iataEmail}</td>
+	                        </tr>
+	                      </table>
+	                    </div></td>
+	                  </tr>
+	                </table>
+	              </div></td>
+	            </tr>
+	          </table>
+	        </div></td>
+	      </tr>
+	      <tr>
+	        <td valign="top"><div align="center">
+	          <table border="0" cellspacing="0" cellpadding="0" width="98%">
+	            <tr>
+	              <td width="100%" valign="top"><p><strong>备注</strong><strong> Remarks</strong></p></td>
+	            </tr>
+	            <tr>
+	              <td width="98%" valign="top"><table border="1" cellspacing="1" cellpadding="0" width="100%">
+	                <tr>
+	                  <td><p>$!{successBean.mailFogResvBaseBean.remark}</p></td>
+	                </tr>
+	              </table></td>
+	            </tr>
+	          </table>
+	        </div></td>
+	      </tr>
+	      <tr>
+	        <td valign="top"><div align="center">
+	          <table border="0" cellspacing="0" cellpadding="0" width="98%">
+	            <tr>
+	              <td width="270" valign="top"><div align="center">
+	                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+	                  <tr>
+	                    <td><p><strong>预订信息</strong><strong>Stay        Information</strong></p></td>
+	                  </tr>
+	                  <tr>
+	                    <td><table border="1" cellspacing="1" cellpadding="0">
+	                      <tr>
+	                        <td><p>入住日期<br />
+	                          StayDay: </p></td>
+	                        <td colspan="3"><p>$!{successBean.mailFogResvBaseBean.indate}到店<br />
+	                          $!{successBean.mailFogResvBaseBean.outdate}离店 </p></td>
+	                      </tr>
+	                      <tr>
+	                        <td width="25%"><p>房夜<br />
+	                          Nights: </p></td>
+	                        <td width="25%"><p align="center">$!{successBean.mailFogResvBaseBean.nights}</p></td>
+	                        <td width="25%"><p>房间:<br />
+	                          No.Rms: </p></td>
+	                        <td width="25%"><p align="center">$!{successBean.mailFogResvBaseBean.rooms} </p></td>
+	                      </tr>
+	                      <tr>
+	                        <td width="25%"><p>房型:<br />
+	                          Room: </p></td>
+	                        <td width="25%"><p align="center">$!{successBean.mailFogResvBaseBean.roomcode}</p></td>
+	                        <td width="25%"><p>计划:<br />
+	                          Plan: </p></td>
+	                        <td width="25%"><p align="center">$!{successBean.mailFogResvBaseBean.plancode}</p></td>
+	                      </tr>
+	                      <tr>
+	                        <td width="25%"><p>成人:<br />
+	                          Adults: </p></td>
+	                        <td width="25%"><p align="center">$!{successBean.mailFogResvBaseBean.adults}</p></td>
+	                        <td width="25%"><p>小孩:<br />
+	                          Child: </p></td>
+	                        <td width="25%">$!{successBean.mailFogResvBaseBean.children}</td>
+	                      </tr>
+	                      <tr>
+	                        <td width="25%"><p>保证制度:<br />
+	                          GtdRule: </p></td>
+	                        <td colspan="3">$!{successBean.mailFogResvBaseBean.guaCode} | $!{successBean.mailFogResvBaseBean.guadesc}</td>
+	                      </tr>
+	                      <tr>
+	                        <td width="25%"><p>取消制度:<br />
+	                          CxlRule: </p></td>
+	                        <td colspan="3">$!{successBean.mailFogResvBaseBean.cxldesc}</td>
+	                      </tr>
+	                      <tr>
+	                        <td width="25%"><p>预订渠道<br />
+	                          Channel: </p></td>
+	                        <td colspan="3"><p>$!{successBean.mailFogResvBaseBean.channel} </p></td>
+	                      </tr>
+	                    </table></td>
+	                  </tr>
+	                  <tr>
+	                    <td><p><strong>支付信息</strong><strong>Payment Information</strong></p></td>
+	                  </tr>
+	                  <tr>
+	                    <td><table border="1" cellspacing="1" cellpadding="0">
+	                      <tr>
+	                        <td width="25%"><p>支付方式:<br />
+	                          PayType: </p></td>
+	                        <td><p>$!{successBean.mailFogResvBaseBean.cctype}</p></td>
+	                      </tr>
+	                      <tr>
+	                        <td width="25%"><p>姓名:<br />
+	                          Name: </p></td>
+	                        <td>$!{successBean.mailFogResvBaseBean.ccname}</td>
+	                      </tr>
+	                      <tr>
+	                        <td width="25%"><p>信用卡号<br />
+	                          Number: </p></td>
+	                        <td>$!{successBean.mailFogResvBaseBean.ccnumber}</td>
+	                      </tr>
+	                      <tr>
+	                        <td width="25%"><p>有效日期<br />
+	                          ExpDate: </p></td>
+	                        <td>$!{successBean.mailFogResvBaseBean.ccexpiration}</td>
+	                      </tr>
+	                    </table></td>
+	                  </tr>
+	                </table>
+	              </div></td>
+	              <td width="360" valign="top"><div align="center">
+	                <table border="0" cellspacing="0" cellpadding="0" width="98%">
+	                  <tr>
+	                    <td><p><strong>总房价</strong><strong>Total        Revenue:$!{successBean.mailFogResvBaseBean.proptotalrevenue}</strong></p></td>
+	                  </tr>
+	                  <tr>
+	                    <td><p><strong>每天房价</strong><strong>Booked        Rates</strong></p></td>
+	                  </tr>
+	                  <tr>
+	                    <td><div align="center">
+	                      <table border="1" cellspacing="0" cellpadding="0" width="100%">
+	                       <tr>
+	                          <td><p>日期 date</p></td>
+	                          <td><p>价格 rate</p></td>
+	                        </tr>
+	                      	#foreach( $resvrate in $successBean.mailFogResvBaseBean.resvRateList ) 
+	                        <tr>
+	                          <td><p>$!{resvrate.bookendatestr}</p></td>
+	                          <td><p>$!{resvrate.proprevenue}</p></td>
+	                        </tr>
+	                        
+	                        #end
+	                      </table>
+	                    </div></td>
+	                  </tr>
+	                </table>
+	              </div></td>
+	            </tr>
+	          </table>
+	        </div></td>
+	      </tr>
+	    </table>
+	   </td>
+  	</tr>
+	  
+  #end 
+  
+</table>
+</body>
+</html>

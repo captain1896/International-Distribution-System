@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="false" default-autowire="byName">
+
+	<bean id="bookingcom_downLoadService"
+		class="com.thayer.idsservice.ids.bookingcom.download.service.BookingcomDownloadService">
+		<property name="bookingListUrl">
+			<value>${bookingcom.br.url}</value>
+		</property>
+		<property name="bookingcomUserId">
+			<value>${bookingcom.UserID}</value>
+		</property>
+		<property name="bookingcomUserPwd">
+			<value>${bookingcom.UserPSW}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="callFogService">
+			<ref bean="bookingcom_callFogService"/>
+		</property>
+	</bean>
+
+	<bean id="bookingcom_updateService"
+		class="com.thayer.idsservice.ids.bookingcom.update.service.BookingcomUploadService">
+		<property name="thirdRequestXmlURL">
+			<value>${bookingcom.ar.url}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService_v3" />
+		</property>
+		<property name="user">
+			<value>${bookingcom.UserID}</value>
+		</property>
+		<property name="password">
+			<value>${bookingcom.UserPSW}</value>
+		</property>
+		<property name="callFogService">
+			<ref bean="bookingcom_callFogService"/>
+		</property>
+		<property name="dbCacheFilterService">
+			<ref bean="bookingcom_dbCacheFilterService"/>
+		</property>
+		<property name="eratemapDAO">
+			<ref bean="eratemapDAO"/>
+		</property>
+		<property name="ideType" value="BOOKINGCOM" />
+	</bean>
+
+
+	<bean id="bookingcom_timeoutRecover4ThirdService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${bookingcom.ar.url}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService" />
+		</property>
+	</bean>
+	
+	<bean id="bookingcom_timeoutRecover4ThirdDlService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${bookingcom.br.url}</value>
+		</property>
+		<property name="httpClientService">
+			<ref bean="httpClientService" />
+		</property>
+	</bean>
+
+	<bean id="bookingcom_timeoutRecover4FogService"
+		class="com.thayer.idsservice.service.SimpleOverTimeRecoverService">
+		<property name="testServiceUrl">
+			<value>${fogEx.url}</value>
+		</property>
+	</bean>
+	
+	<bean id="bookingcom_dbCacheFilterService"
+		class="com.thayer.idsservice.service.DbCacheFilterService">
+		<property name="eIdsCacheDAO"  ref="eIdsCacheDAO"/>
+	</bean>
+	
+	<bean id="bookingcom_callFogService" class="com.thayer.idsservice.service.SimpleCallFogService">
+		<property name="fogUser">
+			<value>${bookingcom.fog.UserID}</value>
+		</property>
+		<property name="fogPassword">
+			<value>${bookingcom.fog.UserPSW}</value>
+		</property>
+		<property name="fogExUrl">
+			<value>${fogEx.url}</value>
+		</property>
+		<property name="needTrySpecResv">
+			<value>true</value>
+		</property>
+	</bean>
+
+</beans>

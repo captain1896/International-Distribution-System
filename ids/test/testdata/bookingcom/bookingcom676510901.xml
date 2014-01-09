@@ -1,0 +1,53 @@
+<reservations>
+  <reservation>
+    <commissionamount>784.08</commissionamount>
+    <currencycode>CNY</currencycode>
+    <customer>
+      <address>250 let Chelyabinsku str., 67-137</address>
+      <cc_cvc>751</cc_cvc>
+      <cc_expiration_date>10/2011</cc_expiration_date>
+      <cc_name>IGOR MANATIN</cc_name>
+      <cc_number>5101267710579261</cc_number>
+      <cc_type>MasterCard</cc_type>
+      <city>Chelyabinsk</city>
+      <company></company>
+      <countrycode>ru</countrycode>
+      <dc_issue_number></dc_issue_number>
+      <dc_start_date></dc_start_date>
+      <email>brand03@umnitsa.ru</email>
+      <first_name>Igor</first_name>
+      <last_name>Manatin</last_name>
+      <remarks></remarks>
+      <telephone>+7 951 460 1000</telephone>
+      <zip>454000</zip>
+    </customer>
+    <date>2012-01-19</date>
+    <hotel_id>67424</hotel_id>
+    <hotel_name>Asset Hotel Shanghai</hotel_name>
+    <id>676510901</id>
+    <room>
+      <arrival_date>2012-01-29</arrival_date>
+      <commissionamount>784.08</commissionamount>
+      <currencycode>CNY</currencycode>
+      <departure_date>2012-01-31</departure_date>
+      <extra_info>Located on the 1st floor, room offers a fridge, minibar and tea and coffee making facilities.</extra_info>
+      <facilities>Tea/Coffee Maker, Minibar, Shower, Telephone, Air Conditioning, Refrigerator, Work Desk, Bathroom Amenities, Toilet, Bathroom, Satellite TV, Cable TV, Carpeted Floor</facilities>
+      <guest_name>Igor Manatin</guest_name>
+      <id>6742404</id>
+      <info> Meal Plan: Buffet breakfast is included in the room rate.  Children and Extra Bed Policy: All children are welcome. All children under 12 years stay free of charge when using existing beds. One older child or adult is charged CNY 100 per night and person in an extra bed. Maximum capacity of extra beds in a room is 1.  Deposit Policy: No deposit will be charged.  Cancellation Policy: If cancelled  up to 1 day before the date of arrival,  no fee will be charged. If cancelled  later or in case of no-show, the first night will be charged. </info>
+      <name>Standard Single Room</name>
+      <numberofguests>1</numberofguests>
+      <price date="2012-01-29"
+             rate_id="90934">242</price>
+      <price date="2012-01-30"
+             rate_id="90934">242</price>
+      <remarks></remarks>
+      <roomreservation_id>148790854</roomreservation_id>
+      <smoking>0</smoking>
+      <totalprice>6534</totalprice>
+    </room>
+    <status>new</status>
+    <time>12:46:41</time>
+    <totalprice>6534</totalprice>
+  </reservation>
+</reservations>

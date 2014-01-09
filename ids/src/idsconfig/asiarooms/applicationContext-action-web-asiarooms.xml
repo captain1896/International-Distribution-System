@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-autowire="byName">
+
+	<bean name="/web/asiarooms/receive.do" class="com.thayer.idsservice.ids.asiarooms.receive.AsiaroomsReceiveAction">
+		
+		<property name="receiveResvService">
+			<ref bean="asiarooms_receiceResvService"/>
+		</property>
+		<property name="receiveQueryHotelAvailService">
+			<ref bean="asiarooms_receiveQueryHotelAvailService"/>
+		</property>
+		<property name="receiveResvCancelService">
+			<ref bean="asiarooms_receiveResvCancelService"/>
+		</property>
+	</bean>
+</beans>

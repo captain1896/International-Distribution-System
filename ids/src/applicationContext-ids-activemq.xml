@@ -1,0 +1,17 @@
+<beans
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:amq="http://activemq.apache.org/schema/core"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  http://activemq.apache.org/schema/core classpath:schema/activemq-core-5.2.0.xsd" default-autowire="byName">
+  	
+    <import resource="idsconfig/agoda/applicationContext-ids-activemq-agoda.xml"/>
+  	<import resource="idsconfig/expedia/applicationContext-ids-activemq-expedia.xml"/>
+  	<import resource="idsconfig/bookingcom/applicationContext-ids-activemq-bookingcom.xml"/>
+  	<!--
+  	<import resource="idsconfig/genares/applicationContext-ids-activemq-genares.xml"/>
+  	-->
+  	<import resource="idsconfig/venere/applicationContext-ids-activemq-venere.xml"/>
+  	<!--<import resource="idsconfig/asiarooms/applicationContext-ids-activemq-asiarooms.xml"/>-->
+	
+</beans>

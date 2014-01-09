@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<import resource="idsconfig/applicationContext-ids-service.xml"/>
+	<import resource="idsconfig/agoda/applicationContext-ids-service-agoda.xml"/>
+	<import resource="idsconfig/expedia/applicationContext-ids-service-expedia.xml"/>
+	<import resource="idsconfig/bookingcom/applicationContext-ids-service-bookingcom.xml"/>
+	<import resource="idsconfig/genares/applicationContext-ids-service-genares.xml"/>
+	<import resource="idsconfig/venere/applicationContext-ids-service-venere.xml"/>
+	<import resource="idsconfig/asiarooms/applicationContext-ids-service-asiarooms.xml"/>
+</beans>

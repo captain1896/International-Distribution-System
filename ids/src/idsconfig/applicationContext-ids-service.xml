@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="false" default-autowire="byName">
+
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<value>
+				input.encoding = UTF-8
+				output.encoding = UTF-8
+				resource.manager.defaultcache.size=0
+				resource.loader=file
+				file.resource.loader.path = ${mail.template.path}
+				file.resource.loader.cache=false
+				file.resource.loader.modificationCheckInterval=2
+				file.resource.loader.class=org.apache.velocity.runtime.resource.loader.FileResourceLoader
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="mailService" class="com.thayer.idsservice.service.MailService"></bean>
+	<bean id="timeSettingConfig" class="com.thayer.idsservice.util.TimeSettingConfig"
+		factory-method="getInstance"></bean>
+
+	<bean id="serviceCache" class="com.thayer.idsservice.service.SimpleOSCacheImpl"></bean>
+	
+	<bean id="httpClientService" class="com.thayer.idsservice.service.HttpClientService_v4"></bean>
+	
+	<bean id="httpClientService_v3" class="com.thayer.idsservice.service.HttpClientService_v3"></bean>
+	
+	<bean id="mapService" class="com.thayer.idsservice.service.MapDBService"></bean>
+
+	 <bean id="cacheFilterService" class="com.thayer.idsservice.service.DefaultCacheFilterService"></bean>
+	 
+	 <bean id="eordermailInfoService" class="com.thayer.idsservice.service.EOrdermailInfoService"></bean>
+	 
+	 <bean name="httpAccessAdvice" class="com.thayer.idsservice.interceptor.HttpAccessAdvice" >
+		<property name="ehttpLogDAO" ref="ehttpLogDAO" />
+		<property name="exwebMapping">
+			<map>
+				<entry key="${agoda.url}">
+		           <value>AGODA</value>
+		        </entry>
+				<entry key="${bookingcom.ar.url}">
+		           <value>BOOKINGCOM</value>
+		        </entry>
+		        <entry key="${bookingcom.br.url}">
+		           <value>BOOKINGCOM</value>
+		        </entry>
+		        <entry key="${expedia.ar.url}">
+		           <value>EXPEDIA</value>
+		        </entry>
+		        <entry key="${expedia.br.url}">
+		           <value>EXPEDIA</value>
+		        </entry>
+		        <entry key="${expedia.bc.url}">
+		           <value>EXPEDIA</value>
+		        </entry>
+			</map>
+		</property>
+	</bean>
+</beans>

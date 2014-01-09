@@ -1,0 +1,65 @@
+@charset "utf-8";
+body {
+	margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+img {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+#top {
+	background-color: #D6DEAB;
+}
+#menu  {
+	background-image: url(images/menu_line.jpg);
+	background-repeat: repeat-x;
+	height: 31px;
+	margin-top: 3px;
+	font-size: 14px;
+}
+#menu a {
+	font-family: "微软雅黑";
+	font-size: 14px;
+	text-decoration: none;
+	color: #224606;
+}
+
+#menu .menutitle {
+	background-image: url(images/menu_2.jpg);
+	height: 26px;
+	width: 100px;
+	margin-left: 5px;
+	text-align: center;
+	background-repeat: no-repeat;
+	padding-top: 5px;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #224606;
+}
+#menu  .menutitle2 {
+	background-image: url(images/menu_bg2.jpg);
+	height: 26px;
+	width: 100px;
+	margin-left: 5px;
+	padding-top: 5px;
+	text-align: center;
+	background-repeat: no-repeat;
+	float: left;
+}
+
+#main  .main1  {
+	border: 1px solid #D9D9D9;
+	padding: 5px;
+}
+#feet {
+	background-color: #BAC488;
+	margin: 0px;
+}
